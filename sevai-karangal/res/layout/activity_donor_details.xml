@@ -21,7 +21,6 @@
              android:paddingTop="16dp"
              android:text="@string/d_donor_details"
              android:textSize="24sp" />
-
      </TableRow>
 
      <TableRow
@@ -35,23 +34,19 @@
              style="@style/WhiteFont"
              android:layout_weight="1"
              android:gravity="left"
-             android:maxWidth="160dp"
              android:paddingBottom="16dp"
-             android:paddingLeft="16dp"
              android:paddingTop="16dp"
              android:text="@string/d_name" />
   
          <TextView
-             android:id="@+id/dname_value"
-             style="@style/WhiteBoldFont"
+             android:id="@+id/dname_value" 
+             android:text="Donor Name"
              android:layout_weight="1"
-             android:gravity="left"
-             android:maxWidth="160dp"
+             style="@style/WhiteBoldFont"
              android:paddingBottom="16dp"
              android:paddingRight="16dp"
-             android:paddingTop="16dp"
-             android:text="Donor Name" />
-
+             android:paddingTop="16dp" 
+             android:gravity="left"/>
      </TableRow>
      
      <TableRow
@@ -60,27 +55,24 @@
          android:gravity="center_horizontal" >
 
          <TextView
-             android:id="@+id/dbloodgroup"
+             android:id="@+id/dbloodgroup" 
+             android:text="@string/d_bloodgroup"
+             android:layout_weight="1" 
              style="@style/WhiteFont"
-             android:layout_weight="1"
-             android:gravity="left"
-             android:maxWidth="160dp"
              android:paddingBottom="16dp"
              android:paddingLeft="16dp"
-             android:paddingTop="16dp"
-             android:text="@string/d_bloodgroup" />
+             android:paddingTop="16dp" 
+             android:gravity="left"/>
   
          <TextView
-             android:id="@+id/dbloodgroup_value"
-             style="@style/WhiteBoldFont"
+             android:id="@+id/dbloodgroup_value" 
+             android:text="O +ve"
              android:layout_weight="1"
-             android:gravity="left"
-             android:maxWidth="160dp"
+             style="@style/WhiteBoldFont"
              android:paddingBottom="16dp"
              android:paddingRight="16dp"
-             android:paddingTop="16dp"
-             android:text="O +ve" />
-
+             android:paddingTop="16dp" 
+             android:gravity="left"/>
      </TableRow>
      
      <TableRow
@@ -89,27 +81,24 @@
          android:gravity="center_horizontal" >
 
          <TextView
-             android:id="@+id/dgender"
+             android:id="@+id/dgender" 
+             android:text="@string/d_gender"
+             android:layout_weight="1" 
              style="@style/WhiteFont"
-             android:layout_weight="1"
-             android:gravity="left"
-             android:maxWidth="160dp"
              android:paddingBottom="16dp"
              android:paddingLeft="16dp"
-             android:paddingTop="16dp"
-             android:text="@string/d_gender" />
+             android:paddingTop="16dp" 
+             android:gravity="left"/>
   
          <TextView
-             android:id="@+id/dgender_value"
-             style="@style/WhiteBoldFont"
+             android:id="@+id/dgender_value" 
+             android:text="Male"
              android:layout_weight="1"
-             android:gravity="left"
-             android:maxWidth="160dp"
+             style="@style/WhiteBoldFont"
              android:paddingBottom="16dp"
              android:paddingRight="16dp"
-             android:paddingTop="16dp"
-             android:text="Male" />
-
+             android:paddingTop="16dp" 
+             android:gravity="left"/>
      </TableRow>
      
      <TableRow
@@ -118,27 +107,24 @@
          android:gravity="center_horizontal" >
 
          <TextView
-             android:id="@+id/dage"
+             android:id="@+id/dage" 
+             android:text="@string/d_age"
+             android:layout_weight="1" 
              style="@style/WhiteFont"
-             android:layout_weight="1"
-             android:gravity="left"
-             android:maxWidth="160dp"
              android:paddingBottom="16dp"
              android:paddingLeft="16dp"
-             android:paddingTop="16dp"
-             android:text="@string/d_age" />
+             android:paddingTop="16dp" 
+             android:gravity="left"/>
   
          <TextView
-             android:id="@+id/dage_value"
-             style="@style/WhiteBoldFont"
+             android:id="@+id/dage_value" 
+             android:text="25"
              android:layout_weight="1"
-             android:gravity="left"
-             android:maxWidth="160dp"
+             style="@style/WhiteBoldFont"
              android:paddingBottom="16dp"
              android:paddingRight="16dp"
-             android:paddingTop="16dp"
-             android:text="25" />
-
+             android:paddingTop="16dp" 
+             android:gravity="left"/>
      </TableRow>
 
      <TableRow
@@ -147,27 +133,24 @@
          android:gravity="center_horizontal" >
 
          <TextView
-             android:id="@+id/dlocality"
+             android:id="@+id/dlocality" 
+             android:text="@string/d_locality"
+             android:layout_weight="1" 
              style="@style/WhiteFont"
-             android:layout_weight="1"
-             android:gravity="left"
-             android:maxWidth="160dp"
              android:paddingBottom="16dp"
              android:paddingLeft="16dp"
-             android:paddingTop="16dp"
-             android:text="@string/d_locality" />
+             android:paddingTop="16dp" 
+             android:gravity="left"/>
   
          <TextView
-             android:id="@+id/dlocality_value"
-             style="@style/WhiteBoldFont"
+             android:id="@+id/dlocality_value" 
+             android:text="Bellandur"
              android:layout_weight="1"
-             android:gravity="left"
-             android:maxWidth="160dp"
+             style="@style/WhiteBoldFont"
              android:paddingBottom="16dp"
              android:paddingRight="16dp"
-             android:paddingTop="16dp"
-             android:text="Bellandur" />
-
+             android:paddingTop="16dp" 
+             android:gravity="left"/>
      </TableRow>
      
      <TableRow
@@ -176,27 +159,24 @@
          android:gravity="center_horizontal" >
 
          <TextView
-             android:id="@+id/dcity"
+             android:id="@+id/dcity" 
+             android:text="@string/d_city"
+             android:layout_weight="1" 
              style="@style/WhiteFont"
-             android:layout_weight="1"
-             android:gravity="left"
-             android:maxWidth="160dp"
              android:paddingBottom="16dp"
              android:paddingLeft="16dp"
-             android:paddingTop="16dp"
-             android:text="@string/d_city" />
+             android:paddingTop="16dp" 
+             android:gravity="left"/>
   
          <TextView
-             android:id="@+id/dcity_value"
-             style="@style/WhiteBoldFont"
+             android:id="@+id/dcity_value" 
+             android:text="Bangalore"
              android:layout_weight="1"
-             android:gravity="left"
-             android:maxWidth="160dp"
+             style="@style/WhiteBoldFont"
              android:paddingBottom="16dp"
              android:paddingRight="16dp"
-             android:paddingTop="16dp"
-             android:text="Bangalore" />
-
+             android:paddingTop="16dp" 
+             android:gravity="left"/>
      </TableRow>
      
      <TableRow
@@ -209,7 +189,6 @@
              style="@style/WhiteFont"
              android:layout_weight="1"
              android:gravity="left"
-             android:maxWidth="160dp"
              android:paddingBottom="16dp"
              android:paddingLeft="16dp"
              android:paddingTop="16dp"
@@ -220,7 +199,6 @@
              style="@style/WhiteBoldFont"
              android:layout_weight="1"
              android:gravity="left"
-             android:maxWidth="160dp"
              android:paddingBottom="16dp"
              android:paddingRight="16dp"
              android:paddingTop="16dp"

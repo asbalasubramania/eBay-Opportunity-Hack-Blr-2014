@@ -59,5 +59,6 @@
     <string name="title_activity_donor_details">DonorDetailsActivity</string>
     <string name="title_activity_request_details">RequestDetailsActivity</string>
     <string name="d_register">Register</string>
+    <string name="title_activity_donor_list">DonorListActivity</string>
 
 </resources>
