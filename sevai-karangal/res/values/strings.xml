@@ -28,10 +28,35 @@
         <item>India</item>
     </string-array>
 
-    
-    
     <string name="title_activity_donor_item">DonorItemActivity</string>
     <string name="register">Register to save life</string>
-    
+
+    <!-- Requstor Details -->
+    <string name="p_requestor_details">Requestor Details</string>
+    <string name="p_name">Patient Name</string>
+    <string name="p_req_bloodgroup">Required Blood Group</string>
+    <string name="p_no_units">No. of Units</string>
+    <string name="p_hospital">Hospital</string>
+    <string name="p_locality">Locality</string>
+    <string name="p_city">City</string>
+    <string name="p_contact_person">Contact Person</string>
+    <string name="p_contact_no">Contact No.</string>
+    <string name="p_date_required">Date on Required</string>
+
+    <!-- Subscriber Details -->
+    <string name="d_donor_details">Donor Details</string>
+    <string name="d_subscribe_title">Register to Save Life</string>
+    <string name="d_name">Donar Name</string>
+    <string name="d_mobile_no">Mobile No.</string>
+    <string name="d_gender">Gender</string>
+    <string name="d_age">Age</string>
+    <string name="d_bloodgroup">Blood Group</string>
+    <string name="d_locality">Locality</string>
+    <string name="d_city">City</string>
+    <string name="d_last_don_date">Last Donated Date</string>
+    <string name="d_height">Height (cm)</string>
+    <string name="d_weight">Weight (kg)</string>
+    <string name="title_activity_donor_details">DonorDetailsActivity</string>
+    <string name="title_activity_request_details">RequestDetailsActivity</string>
 
 </resources>

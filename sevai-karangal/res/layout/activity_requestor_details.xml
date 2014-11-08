@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/otherpages"
+    android:orientation="vertical" >
+    
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal" >
+
+         <TextView
+             android:id="@+id/dDetTitle"
+             style="@style/WhiteFont"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:paddingBottom="12dp"
+             android:paddingLeft="12dp"
+             android:paddingTop="12dp"
+             android:text="@string/p_requestor_details"
+             android:textSize="24sp" />
+
+     </TableRow>
+
+     <TableRow
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="20dp"
+         android:gravity="center_horizontal" >
+
+         <TextView
+             android:id="@+id/pName"
+             style="@style/WhiteFont"
+             android:layout_weight="1"
+             android:gravity="left"
+             android:paddingBottom="12dp"
+             android:paddingLeft="12dp"
+             android:paddingTop="12dp"
+             android:text="@string/p_name" />
+  
+         <TextView
+             android:id="@+id/pName_value"
+             style="@style/WhiteBoldFont"
+             android:layout_weight="1"
+             android:gravity="left"
+             android:paddingBottom="12dp"
+             android:paddingRight="12dp"
+             android:paddingTop="12dp"
+             android:text="Patient Name" />
+
+     </TableRow>
+     
+     <TableRow
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal" >
+
+         <TextView
+             android:id="@+id/pBloodgroup" 
+             android:text="@string/p_req_bloodgroup"
+             android:layout_weight="1" 
+             style="@style/WhiteFont"
+             android:paddingBottom="12dp"
+             android:paddingLeft="12dp"
+             android:paddingTop="12dp" 
+             android:gravity="left"/>
+  
+         <TextView
+             android:id="@+id/pBloodgroup_value" 
+             android:text="O +ve"
+             android:layout_weight="1"
+             style="@style/WhiteBoldFont"
+             android:paddingBottom="12dp"
+             android:paddingRight="12dp"
+             android:paddingTop="12dp" 
+             android:gravity="left"/>
+     </TableRow>
+     
+     <TableRow
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal" >
+
+         <TextView
+             android:id="@+id/pUnits" 
+             android:text="@string/p_no_units"
+             android:layout_weight="1" 
+             style="@style/WhiteFont"
+             android:paddingBottom="12dp"
+             android:paddingLeft="12dp"
+             android:paddingTop="12dp" 
+             android:gravity="left"/>
+  
+         <TextView
+             android:id="@+id/pUnits_value" 
+             android:text="4"
+             android:layout_weight="1"
+             style="@style/WhiteBoldFont"
+             android:paddingBottom="12dp"
+             android:paddingRight="12dp"
+             android:paddingTop="12dp" 
+             android:gravity="left"/>
+     </TableRow>
+     
+     <TableRow
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal" >
+
+         <TextView
+             android:id="@+id/pHospital" 
+             android:text="@string/p_hospital"
+             android:layout_weight="1" 
+             style="@style/WhiteFont"
+             android:paddingBottom="12dp"
+             android:paddingLeft="12dp"
+             android:paddingTop="12dp" 
+             android:gravity="left"/>
+  
+         <TextView
+             android:id="@+id/pHospital_value" 
+             android:text="Manipal Hospitals"
+             android:layout_weight="1"
+             style="@style/WhiteBoldFont"
+             android:paddingBottom="12dp"
+             android:paddingRight="12dp"
+             android:paddingTop="12dp" 
+             android:gravity="left"/>
+     </TableRow>
+     
+     <TableRow
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal" >
+
+         <TextView
+             android:id="@+id/pLocality"
+             style="@style/WhiteFont"
+             android:layout_weight="1"
+             android:gravity="left"
+             android:paddingBottom="12dp"
+             android:paddingLeft="12dp"
+             android:paddingTop="12dp"
+             android:text="@string/p_locality" />
+  
+         <TextView
+             android:id="@+id/pLocality_value"
+             style="@style/WhiteBoldFont"
+             android:layout_weight="1"
+             android:gravity="left"
+             android:paddingBottom="12dp"
+             android:paddingRight="12dp"
+             android:paddingTop="12dp"
+             android:text="Indra Nagar" />
+     </TableRow>
+     
+     <TableRow
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal" >
+
+         <TextView
+             android:id="@+id/pCity"
+             style="@style/WhiteFont"
+             android:layout_weight="1"
+             android:gravity="left"
+             android:paddingBottom="12dp"
+             android:paddingLeft="12dp"
+             android:paddingTop="12dp"
+             android:text="@string/p_city" />
+  
+         <TextView
+             android:id="@+id/pCity_value"
+             style="@style/WhiteBoldFont"
+             android:layout_weight="1"
+             android:gravity="left"
+             android:paddingBottom="12dp"
+             android:paddingRight="12dp"
+             android:paddingTop="12dp"
+             android:text="Bangalore" />
+
+     </TableRow>
+
+     <TableRow
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal" >
+
+         <TextView
+             android:id="@+id/pContactPerson" 
+             android:text="@string/p_contact_person"
+             android:layout_weight="1" 
+             style="@style/WhiteFont"
+             android:paddingBottom="12dp"
+             android:paddingLeft="12dp"
+             android:paddingTop="12dp" 
+             android:gravity="left"/>
+  
+         <TextView
+             android:id="@+id/pContactPerson_value" 
+             android:text="Contact name"
+             android:layout_weight="1"
+             style="@style/WhiteBoldFont"
+             android:paddingBottom="12dp"
+             android:paddingRight="12dp"
+             android:paddingTop="12dp" 
+             android:gravity="left"/>
+     </TableRow>
+     
+     <TableRow
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal" >
+
+         <TextView
+             android:id="@+id/pContact_no" 
+             android:text="@string/p_contact_no"
+             android:layout_weight="1" 
+             style="@style/WhiteFont"
+             android:paddingBottom="12dp"
+             android:paddingLeft="12dp"
+             android:paddingTop="12dp" 
+             android:gravity="left"/>
+  
+         <TextView
+             android:id="@+id/pContact_no_value" 
+             android:text="9876543210"
+             android:layout_weight="1"
+             style="@style/WhiteBoldFont"
+             android:paddingBottom="12dp"
+             android:paddingRight="12dp"
+             android:paddingTop="12dp" 
+             android:gravity="left"/>
+     </TableRow>
+     
+     <TableRow
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center_horizontal" >
+
+         <TextView
+             android:id="@+id/pDate"
+             style="@style/WhiteFont"
+             android:layout_weight="1"
+             android:gravity="left"
+             android:paddingBottom="12dp"
+             android:paddingLeft="12dp"
+             android:paddingTop="12dp"
+             android:text="@string/p_date_required" />
+  
+         <TextView
+             android:id="@+id/pDate_value"
+             style="@style/WhiteBoldFont"
+             android:layout_weight="1"
+             android:gravity="left"
+             android:paddingBottom="12dp"
+             android:paddingRight="12dp"
+             android:paddingTop="12dp"
+             android:text="04/18/2014" />
+
+     </TableRow>
+     
+</TableLayout>
