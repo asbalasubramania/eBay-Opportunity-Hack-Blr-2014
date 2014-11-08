@@ -7,8 +7,6 @@ import java.util.List;
 
 import org.apache.http.Header;
 import org.apache.http.entity.StringEntity;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
@@ -43,8 +41,8 @@ public class RequestActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_request);
 
-		addItemsOnSpinner2();
-
+		addItemsOnSpinner1();
+		
 		Button submit = (Button) findViewById(R.id.button1);
 		submit.setOnClickListener(new View.OnClickListener() {
 
@@ -66,7 +64,7 @@ public class RequestActivity extends Activity {
 				rq.setPatientName(mEdit2.getText().toString());
 				rq.setHospital(mEdit3.getText().toString());
 				rq.setContactPerson(mEdit4.getText().toString());
-				rq.setContactNumber(Long.parseLong(mEdit5.getText().toString()));
+				if (mEdit5.getText() != null) rq.setContactNumber(Long.parseLong(mEdit5.getText().toString()));
 				rq.setLocality(mEdit6.getText().toString());
 				rq.setRequestDate(new  Date());//mEdit7.getText().toString());
 				rq.setCity(mEdit8.getText().toString());
@@ -126,19 +124,6 @@ public class RequestActivity extends Activity {
 
 			}
 		});
-
-		Button emerb = (Button) findViewById(R.id.button2);
-		emerb.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-				Intent emer = new Intent(RequestActivity.this,
-						EmergencyCase.class);
-				startActivity(emer);
-			}
-		});
-
 		
 		locMgr = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 	    locMgr.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new geoUpdate());
@@ -148,7 +133,7 @@ public class RequestActivity extends Activity {
 	
 	
 
-	public void addItemsOnSpinner2() {
+	public void addItemsOnSpinner1() {
 
 		spinner = (Spinner) findViewById(R.id.spinner1);
 		List<String> list = new ArrayList<String>();

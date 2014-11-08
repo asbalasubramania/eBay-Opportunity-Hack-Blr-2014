@@ -1,22 +1,22 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<TableLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/otherpages"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".RequestActivity" >
+    tools:context=".SubscribeActivity" >
 
-   
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textView10"
             style="@style/WhiteBoldFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             android:paddingBottom="7dp"
             android:paddingLeft="7dp"
             android:paddingTop="7dp"
-            android:text="@string/p_requestor_details"
+            android:text="@string/d_subscribe_title"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="24sp" />
 
@@ -34,7 +34,38 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_weight="0.00" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/d_name"
+            style="@style/WhiteFont" />
+
+        <EditText
+            android:id="@+id/editText1"
+            style="@style/WhiteFont"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:ems="10"
+            android:inputType="textPersonName" >
+            <requestFocus />
+        </EditText>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="0.00" >
 
         <TextView
@@ -46,14 +77,20 @@
             android:paddingBottom="7dp"
             android:paddingLeft="7dp"
             android:paddingTop="7dp"
-            android:text="@string/p_req_bloodgroup"
+            android:text="@string/d_mobile_no"
             style="@style/WhiteFont" />
 
-        <Spinner
-            android:id="@+id/spinner1"
+        <EditText
+            android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+			android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:ems="10"
+            android:inputType="phone" />
     </TableRow>
 
     <TableRow
@@ -63,18 +100,7 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
-            android:text="@string/p_no_units"
-            style="@style/WhiteFont" />
-
-        <EditText
-            android:id="@+id/units"
+            style="@style/WhiteFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 			android:layout_weight="1"
@@ -82,10 +108,16 @@
             android:paddingBottom="7dp"
             android:paddingLeft="7dp"
             android:paddingTop="7dp"
-            android:ems="10"
-            android:inputType="number" />
+            android:text="@string/d_gender" />
+        
+		<Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
     </TableRow>
-    
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,24 +132,19 @@
             android:paddingBottom="7dp"
             android:paddingLeft="7dp"
             android:paddingTop="7dp"
-            android:text="@string/p_name"
+            android:text="@string/d_age"
             style="@style/WhiteFont" />
 
         <EditText
-            android:id="@+id/patientn"
-            style="@style/WhiteFont"
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
-            android:ems="10"
-            android:inputType="textPersonName" >
-            <requestFocus />
-        </EditText>
-	</TableRow>
-	
-     <TableRow
+            android:inputType="number" />
+
+    </TableRow>
+
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
@@ -126,23 +153,22 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+			android:layout_weight="1"
             android:gravity="left"
             android:paddingBottom="7dp"
             android:paddingLeft="7dp"
             android:paddingTop="7dp"
-            android:text="@string/p_hospital"
+            android:text="@string/d_bloodgroup"
             style="@style/WhiteFont" />
 
-        <EditText
-            android:id="@+id/hospital"
+        <Spinner
+            android:id="@+id/spinner2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10" />
+            android:layout_weight="1" />
 
     </TableRow>
-     
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -157,24 +183,19 @@
             android:paddingBottom="7dp"
             android:paddingLeft="7dp"
             android:paddingTop="7dp"
-            android:text="@string/p_contact_person"
+            android:text="@string/d_locality"
             style="@style/WhiteFont" />
 
         <EditText
-            android:id="@+id/contactp"
-            style="@style/WhiteFont"
+            android:id="@+id/editText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
-            android:ems="10"
-            android:inputType="textPersonName" >
-            <requestFocus />
-        </EditText>
-	</TableRow>
-	
-     <TableRow
+            android:ems="10" />
+
+    </TableRow>
+
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
@@ -183,25 +204,25 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/d_last_don_date"
             android:layout_weight="1"
             android:gravity="left"
             android:paddingBottom="7dp"
             android:paddingLeft="7dp"
             android:paddingTop="7dp"
-            android:text="@string/p_contact_no"
             style="@style/WhiteFont" />
 
         <EditText
-            android:id="@+id/contactn"
+            android:id="@+id/editText5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="date" />
 
     </TableRow>
-    
-     <TableRow
+
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
@@ -210,27 +231,27 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/p_date_required"
             android:layout_weight="1"
             android:gravity="left"
             android:paddingBottom="7dp"
             android:paddingLeft="7dp"
             android:paddingTop="7dp"
+            android:text="@string/d_height"
             style="@style/WhiteFont" />
 
         <EditText
-            android:id="@+id/date"
+            android:id="@+id/editText6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="date" />
+            android:inputType="number" />
 
     </TableRow>
-	
+
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.00" >
 
         <TextView
@@ -242,50 +263,26 @@
             android:paddingBottom="7dp"
             android:paddingLeft="7dp"
             android:paddingTop="7dp"
-            android:text="@string/p_locality"
+            android:text="@string/d_weight"
             style="@style/WhiteFont" />
 
         <EditText
-            android:id="@+id/location"
+            android:id="@+id/editText7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10" />
+            android:ems="10"
+            android:inputType="number" />
 
     </TableRow>
-	
-       <TableRow
-        android:layout_width="match_parent"
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.00" >
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="@string/d_update" />
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
-            android:text="@string/p_city"
-            style="@style/WhiteFont" />
 
-        <EditText
-            android:id="@+id/city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10" />
-
-    </TableRow>
-
-       <Button
-           android:id="@+id/button1"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginLeft="50dp"
-           android:layout_marginRight="50dp"
-           android:text="Request" />
-    
 </TableLayout>
