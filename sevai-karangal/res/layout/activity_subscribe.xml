@@ -1,4 +1,4 @@
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+<TableLayout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".SubscribeActivity" >
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
@@ -20,15 +20,18 @@
             style="@style/WhiteBoldFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="20dp"
-            android:text="Register to Save Life"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/d_subscribe_title"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="24dp" />
+            android:textSize="24sp" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -38,23 +41,29 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
-            android:textColor="#FFFFFF" />
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/d_name"
+            style="@style/WhiteFont" />
 
         <EditText
             android:id="@+id/editText1"
-            android:layout_width="164dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_weight="0.15"
+            style="@style/WhiteFont"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
             android:ems="10"
             android:inputType="textPersonName" >
-
             <requestFocus />
         </EditText>
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
@@ -63,60 +72,53 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mobile No."
-            android:textColor="#FFFFFF" />
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/d_mobile_no"
+            style="@style/WhiteFont" />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="1"
+			android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
             android:ems="10"
             android:inputType="phone" />
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
 
         <TextView
             android:id="@+id/textView3"
+            style="@style/WhiteFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Gender"
-            android:textColor="#FFFFFF" />
-
-        <RadioGroup
-            android:id="@+id/radioGroup1"
-            android:layout_width="match_parent"
+			android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/d_gender" />
+        
+		<Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:orientation="horizontal" >
+            android:layout_weight="1" />
 
-            <RadioButton
-                android:id="@+id/radio0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Male"
-                android:textColor="#CCFFFF" />
+    </TableRow>
 
-            <RadioButton
-                android:id="@+id/radio1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Female"
-                android:textColor="#CCFFFF" />
-
-        </RadioGroup>
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
@@ -125,21 +127,24 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Age"
-            android:textColor="#CCFFFF" />
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/d_age"
+            style="@style/WhiteFont" />
 
         <EditText
             android:id="@+id/editText3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="65dp"
             android:layout_weight="1"
-            android:ems="10"
             android:inputType="number" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
@@ -148,20 +153,23 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Blood Group"
-            android:textColor="#CCFFFF" />
+			android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/d_bloodgroup"
+            style="@style/WhiteFont" />
 
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/spinner2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_weight="1" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
@@ -170,44 +178,51 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Locality"
-            android:textColor="#CCFFFF" />
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/d_locality"
+            style="@style/WhiteFont" />
 
         <EditText
             android:id="@+id/editText4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="42dp"
             android:layout_weight="1"
             android:ems="10" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
 
         <TextView
             android:id="@+id/textView7"
-            android:layout_width="88dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="-10dp"
-            android:text="Last Donated Date"
-            android:textColor="#CCFFFF" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/d_last_don_date"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            style="@style/WhiteFont" />
 
         <EditText
             android:id="@+id/editText5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="1dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="date" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.00" >
@@ -216,41 +231,58 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Height (cm)"
-            android:textColor="#CCFFFF" />
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/d_height"
+            style="@style/WhiteFont" />
 
         <EditText
             android:id="@+id/editText6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number" />
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.00" >
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weight (kg)"
-            android:textColor="#CCFFFF" />
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/d_weight"
+            style="@style/WhiteFont" />
 
         <EditText
             android:id="@+id/editText7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number" />
 
-    </LinearLayout>
+    </TableRow>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="@string/d_register" />
+
+
+</TableLayout>

@@ -46,7 +46,7 @@
     <!-- Subscriber Details -->
     <string name="d_donor_details">Donor Details</string>
     <string name="d_subscribe_title">Register to Save Life</string>
-    <string name="d_name">Donar Name</string>
+    <string name="d_name">Donor Name</string>
     <string name="d_mobile_no">Mobile No.</string>
     <string name="d_gender">Gender</string>
     <string name="d_age">Age</string>
@@ -58,5 +58,6 @@
     <string name="d_weight">Weight (kg)</string>
     <string name="title_activity_donor_details">DonorDetailsActivity</string>
     <string name="title_activity_request_details">RequestDetailsActivity</string>
+    <string name="d_register">Register</string>
 
 </resources>
