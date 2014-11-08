@@ -53,11 +53,24 @@ class RequestInfo {
 			System.out.println(this.hospital);
 			System.out.println(this.location);
 		}
+		
+		public String getinfoinstr()
+		{
+			StringBuffer strbuf = new StringBuffer();
+			
+			strbuf.append("Blood Type: " + this.bloodtype + System.getProperty("line.separator") +
+					"UNits:" + this.units + System.getProperty("line.separator") +
+					"At this location " + this.location + System.getProperty("line.separator") +
+					"Contact No " + this.contactno);
+			
+			
+			return strbuf.toString();
+		}
 }
 
 public class RequestActivity extends Activity {
 
-	
+	Bundle bundle;
 	Spinner spinner; 
 	String spinnerout  = "";
 	String[] bloudgroups = {"A+","B+","A","O","O+"};
@@ -92,12 +105,16 @@ new RequestInfo(spinner.getSelectedItem().toString(),mEdit1.getText().toString()
 		mEdit7.getText().toString(),mEdit8.getText().toString());
 				
 
+
 // SEND teh request object to the server and call the API 
 
 			Intent reqobj = new Intent(RequestActivity.this, RequestActivity2.class);
+			System.out.println(rq.getinfoinstr());
+			reqobj.putExtra("info", rq.getinfoinstr());
 			startActivity(reqobj);
 
-
+			
+			
 				/*Intent intent1 = new Intent(LocationUpdateDemoActivity.this,HttpPostDemo.class);
 				intent1.putExtra(name, str);
 				intent1.putExtra(loc, loc);

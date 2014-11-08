@@ -26,6 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="100dp"
-        android:text="Send SMS to All MY  Contacts" />
+        android:text="Send SMS" />
 
 </LinearLayout>

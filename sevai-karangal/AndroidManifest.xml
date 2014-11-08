@@ -4,10 +4,12 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="10" />
 
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_new"
@@ -33,10 +35,6 @@
         <activity android:name="com.sevaikarangal.blooddonationapp.EmergencyCase" />
         <activity android:name="com.sevaikarangal.blooddonationapp.RequestActivity2" />
         <activity android:name="com.sevaikarangal.blooddonationapp.DonorList" />
-        <activity
-            android:name="com.sevaikarangal.blooddonationapp.DonorItemActivity"
-            android:label="@string/title_activity_donor_item" >
-        </activity>
     </application>
 
 </manifest>
