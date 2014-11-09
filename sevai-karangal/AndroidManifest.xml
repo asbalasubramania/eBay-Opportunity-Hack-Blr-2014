@@ -14,6 +14,7 @@
         android:targetSdkVersion="10" />
 
     <application
+        android:name="com.sevaikarangal.blooddonationapp.DonorApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon_new"
         android:label="@string/app_name"
@@ -50,10 +51,16 @@
             android:name="com.sevaikarangal.blooddonationapp.DonorListActivity"
             android:label="@string/title_activity_donor_list" >
         </activity>
+        <service android:name=".NotifyService"/>
         <activity
             android:name="com.sevaikarangal.blooddonationapp.RequestListActivity"
             android:label="@string/title_activity_request_list" >
         </activity>
+        <activity
+            android:name="com.sevaikarangal.blooddonationapp.RequestActivityMyOwn"
+            android:label="@string/title_activity_request_list" >
+        </activity>
+        
         <activity
             android:name="com.sevaikarangal.blooddonationapp.RequestItemActivity"
             android:label="@string/title_activity_request_item" >

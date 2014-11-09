@@ -46,6 +46,7 @@ public class RequestActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_request);
 
+
 		addItemsOnSpinners();
 		
 		Button submit = (Button) findViewById(R.id.button1);
@@ -53,7 +54,6 @@ public class RequestActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-
 				EditText mEdit1 = (EditText) findViewById(R.id.units);
 				EditText mEdit2 = (EditText) findViewById(R.id.patientn);
 				EditText mEdit3 = (EditText) findViewById(R.id.hospital);
@@ -113,33 +113,34 @@ public class RequestActivity extends Activity {
 				rq.setHospital(mEdit3.getText().toString());
 				rq.setContactPerson(mEdit4.getText().toString());
 				if (mEdit5.getText() != null) rq.setContactNumber(Long.parseLong(mEdit5.getText().toString()));
-				rq.setLocality(spinner.getSelectedItem().toString());
-				rq.setRequestDate(new  Date());//mEdit7.getText().toString());
+				rq.setLocality(locality.getSelectedItem().toString());
+				rq.setRequestDate(new  Date());
+				//mEdit7.getText().toString());
 				rq.setCity(mEdit8.getText().toString());
-			
+
 				AsyncHttpClient client = new AsyncHttpClient();
-				
+
 				StringEntity entity = null;
-		        try {
+				try {
 					entity = new StringEntity(rq.toString());
 				} catch (UnsupportedEncodingException e1) {
 					e1.printStackTrace();
 				}
-				Toast.makeText(getApplicationContext(),
-						rq.toString(),
+				Toast.makeText(getApplicationContext(), rq.toString(),
 						Toast.LENGTH_LONG).show();
-				client.post(getApplicationContext(), 
+				client.post(
+						getApplicationContext(),
 						"http://1-dot-blood-donor-svc.appspot.com/datastore/requestor",
-						entity,
-						"application/json",
+						entity, "application/json",
 						new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int statusCode,
 									Header[] headers, byte[] response) {
 								Toast.makeText(getApplicationContext(),
-										new String(response),
-										Toast.LENGTH_LONG).show();
+										new String(response), Toast.LENGTH_LONG)
+										.show();
 							}
+
 							@Override
 							public void onFailure(int statusCode,
 									Header[] headers, byte[] errorResponse,
@@ -150,12 +151,12 @@ public class RequestActivity extends Activity {
 							}
 						});
 
-				// SEND teh request object to the server and call the API
+				// SEND the request object to the server and call the API
 				Intent reqobj = new Intent(RequestActivity.this,
 						RequestActivity2.class);
 				System.out.println(rq.getinfoinstr());
 				reqobj.putExtra("info", rq.getinfoinstr());
-				reqobj.putExtra("reqid",new String(reqid) );
+				reqobj.putExtra("reqid",rq.getContactNumber() );
 				startActivity(reqobj);
 
 				// remove later
@@ -169,17 +170,16 @@ public class RequestActivity extends Activity {
 
 			}
 		});
-		
+
 		locMgr = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-	    locMgr.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new geoUpdate());
-	    Location lc = locMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		locMgr.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0,
+				new geoUpdate());
+		Location lc = locMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
 	}
-	
-	
+
 
 	public void addItemsOnSpinners() {
-
 		spinner = (Spinner) findViewById(R.id.spinner1);
 		List<String> list = new ArrayList<String>();
 		list.add("O+ve");
@@ -357,46 +357,29 @@ public class RequestActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.request, menu);
 		return true;
 	}
 
 }
 
-class geoUpdate implements LocationListener
-{
+class geoUpdate implements LocationListener {
 
-	
 	@Override
 	public void onLocationChanged(Location location) {
-		// TODO Auto-generated method stub
-		
-		// Get the location and send the values 
-		
-	// Instead we send dummy values .  
-			       	
 	}
 
 	@Override
 	public void onProviderDisabled(String provider) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onProviderEnabled(String provider) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {
-		// TODO Auto-generated method stub
-	
-		
-		
 	}
-	
-}
 
+}

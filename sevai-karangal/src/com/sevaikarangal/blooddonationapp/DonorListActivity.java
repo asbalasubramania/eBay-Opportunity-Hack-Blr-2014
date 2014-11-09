@@ -1,6 +1,5 @@
 package com.sevaikarangal.blooddonationapp;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -26,7 +25,6 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sevaikarangal.blooddonationapp.bean.DonorDetail;
-import com.sevaikarangal.blooddonationapp.bean.RequestInfo;
 
 public class DonorListActivity extends ListActivity {
 
@@ -71,11 +69,12 @@ public class DonorListActivity extends ListActivity {
 						
 						Gson gson = new Gson();
 						DonorDetail[] donorArray = gson.fromJson(new String(responseString), DonorDetail[].class);
-
-						List<DonorDetail> values = Arrays.asList(donorArray);
-						DonorArrayAdapter adapter = new DonorArrayAdapter(getApplicationContext(),
-								R.layout.activity_donor_item, values);
-						setListAdapter(adapter);
+						if (donorArray != null) {
+							List<DonorDetail> values = Arrays.asList(donorArray);
+							DonorArrayAdapter adapter = new DonorArrayAdapter(getApplicationContext(),
+									R.layout.activity_donor_item, values);
+							setListAdapter(adapter);
+						}
 					}
 
 					@Override
