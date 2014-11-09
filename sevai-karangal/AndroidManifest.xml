@@ -50,6 +50,14 @@
             android:name="com.sevaikarangal.blooddonationapp.DonorListActivity"
             android:label="@string/title_activity_donor_list" >
         </activity>
+        <activity
+            android:name="com.sevaikarangal.blooddonationapp.RequestListActivity"
+            android:label="@string/title_activity_request_list" >
+        </activity>
+        <activity
+            android:name="com.sevaikarangal.blooddonationapp.RequestItemActivity"
+            android:label="@string/title_activity_request_item" >
+        </activity>
     </application>
 
 </manifest>

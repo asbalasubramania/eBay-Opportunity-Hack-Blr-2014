@@ -51,7 +51,7 @@
 	    android:layout_gravity="right"
 	    android:layout_marginLeft="25dp"
 	    android:background="#990000"
-	    android:src="@drawable/phone" />
+	    android:src="@drawable/phone_48" />
 </TableRow>
 
 </TableLayout>

@@ -50,8 +50,7 @@
             style="@style/WhiteFont" />
 
         <EditText
-            android:id="@+id/editText1"
-            style="@style/WhiteFont"
+            android:id="@+id/personName"
             android:layout_weight="1"
             android:gravity="left"
             android:paddingBottom="7dp"
@@ -81,7 +80,7 @@
             style="@style/WhiteFont" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/contactn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 			android:layout_weight="1"
@@ -99,7 +98,7 @@
         android:layout_weight="0.00" >
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/genderLabel"
             style="@style/WhiteFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -111,36 +110,10 @@
             android:text="@string/d_gender" />
         
 		<Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.00" >
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
-            android:text="@string/d_age"
-            style="@style/WhiteFont" />
-
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="number" />
 
     </TableRow>
 
@@ -162,7 +135,7 @@
             style="@style/WhiteFont" />
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/bloodGrp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -187,7 +160,7 @@
             style="@style/WhiteFont" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/locality"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -195,6 +168,32 @@
 
     </TableRow>
 
+        <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.00" >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/d_city"
+            style="@style/WhiteFont" />
+
+        <EditText
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="text" />
+
+    </TableRow>
+    
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -213,7 +212,7 @@
             style="@style/WhiteFont" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/dateLostGiven"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -240,7 +239,7 @@
             style="@style/WhiteFont" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -267,7 +266,7 @@
             style="@style/WhiteFont" />
 
         <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -13,6 +13,10 @@ public class RequestActivity2 extends Activity {
 
 	public void openDonorList(View view) {
 		Intent intent = new Intent(this, DonorListActivity.class);
+		String city = null, locality = null, bloodGroup = null;
+		intent.putExtra("city", city);
+		intent.putExtra("locality", locality);
+		intent.putExtra("bloodGroup", bloodGroup );
 		startActivity(intent);
 	}
 
@@ -20,6 +24,7 @@ public class RequestActivity2 extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_request2);
+		
 		final Bundle bundle = getIntent().getExtras();
 
 		Button sms = (Button) findViewById(R.id.sendsms);
@@ -27,10 +32,8 @@ public class RequestActivity2 extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-
 				Toast.makeText(getApplicationContext(),
-						"You can now end SMS to  YOUR contacts ",
+						"You can now send SMS to YOUR contacts ",
 						Toast.LENGTH_LONG).show();
 
 				String str = new String();

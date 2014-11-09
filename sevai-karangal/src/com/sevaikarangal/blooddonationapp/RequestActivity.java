@@ -77,12 +77,9 @@ public class RequestActivity extends Activity {
 				} catch (UnsupportedEncodingException e1) {
 					e1.printStackTrace();
 				}
-		        System.out.println("####################################" + rq.toString());
 				Toast.makeText(getApplicationContext(),
 						rq.toString(),
 						Toast.LENGTH_LONG).show();
-
-
 				client.post(getApplicationContext(), 
 						"http://1-dot-blood-donor-svc.appspot.com/datastore/requestor",
 						entity,

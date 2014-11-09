@@ -23,14 +23,14 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.sevaikarangal.blooddonationapp.bean.DonorDetail;
+import com.sevaikarangal.blooddonationapp.bean.RequestInfo;
 
-public class DonorListActivity extends ListActivity {
+public class RequestListActivity extends ListActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_donor_list);
+		setContentView(R.layout.activity_request_list);
 
 		final Bundle bundleExtras = getIntent().getExtras();
 
@@ -64,11 +64,11 @@ public class DonorListActivity extends ListActivity {
 						Toast.makeText(getApplicationContext(),
 								new String(responseString), Toast.LENGTH_LONG).show();
 
-						System.out.println(new String(responseString));
+						System.out.println(responseString);
 						
-						List<DonorDetail> values = new ArrayList<DonorDetail>();
-						DonorArrayAdapter adapter = new DonorArrayAdapter(getApplicationContext(),
-								R.layout.activity_donor_item, values);
+						List<RequestInfo> values = new ArrayList<RequestInfo>();
+						RequestArrayAdapter adapter = new RequestArrayAdapter(getApplicationContext(),
+								R.layout.activity_request_item, values);
 						setListAdapter(adapter);
 					}
 
@@ -80,6 +80,13 @@ public class DonorListActivity extends ListActivity {
 								.show();
 					}
 				});
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.request_list, menu);
+		return true;
 	}
 
 	public void invokeCall(View view) {
@@ -87,27 +94,21 @@ public class DonorListActivity extends ListActivity {
 		intent.setData(Uri.parse("tel:0123456789"));
 		startActivity(intent);
 	}
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.donor_list, menu);
-		return true;
-	}
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		DonorDetail item = (DonorDetail) getListAdapter().getItem(position);
-		Toast.makeText(this, item.getName() + " selected", Toast.LENGTH_LONG).show();
+		RequestInfo item = (RequestInfo) getListAdapter().getItem(position);
+		Toast.makeText(this, item.getBloodGroup() + " selected",
+				Toast.LENGTH_LONG).show();
 	}
 
-	private class DonorArrayAdapter extends ArrayAdapter<DonorDetail> {
+	private class RequestArrayAdapter extends ArrayAdapter<RequestInfo> {
 
-		HashMap<DonorDetail, Integer> mIdMap = new HashMap<DonorDetail, Integer>();
+		HashMap<RequestInfo, Integer> mIdMap = new HashMap<RequestInfo, Integer>();
 		private final Context context;
 
-		public DonorArrayAdapter(Context context, int textViewResourceId,
-				List<DonorDetail> objects) {
+		public RequestArrayAdapter(Context context, int textViewResourceId,
+				List<RequestInfo> objects) {
 			super(context, textViewResourceId, objects);
 			this.context = context;
 			for (int i = 0; i < objects.size(); ++i) {
@@ -117,7 +118,7 @@ public class DonorListActivity extends ListActivity {
 
 		@Override
 		public long getItemId(int position) {
-			DonorDetail item = getItem(position);
+			RequestInfo item = getItem(position);
 			return mIdMap.get(item);
 		}
 
@@ -130,13 +131,15 @@ public class DonorListActivity extends ListActivity {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			LayoutInflater inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			View rowView = inflater.inflate(R.layout.activity_donor_item,
+			View rowView = inflater.inflate(R.layout.activity_request_item,
 					parent, false);
-			DonorDetail item = getItem(position);
+			RequestInfo item = getItem(position);
 			TextView bloodGrp = (TextView) rowView.findViewById(R.id.bloodGrp);
 			bloodGrp.setText(item.getBloodGroup());
-			TextView nameAddress = (TextView) rowView.findViewById(R.id.nameAddress);
-			nameAddress.setText(item.getName() + "\n" + item.getPhoneNumber());
+			TextView nameAddress = (TextView) rowView
+					.findViewById(R.id.nameAddress);
+			nameAddress.setText(item.getContactPerson() + "\n"
+					+ item.getLocality());
 			return rowView;
 		}
 
