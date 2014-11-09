@@ -24,7 +24,8 @@ import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.sevaikarangal.blooddonationapp.bean.DonorDetail;
+import com.sevaikarangal.blooddonationapp.bean.DonorRequest;
+import com.sevaikarangal.blooddonationapp.bean.DonorRequestArray;
 
 public class DonorListActivity extends ListActivity {
 
@@ -39,8 +40,8 @@ public class DonorListActivity extends ListActivity {
 		String city = null;
 		String locality = null;
 
-		if (bundleExtras.getString("bloodGrp") != null) {
-			bloodGrp = bundleExtras.getString("bloodGrp");
+		if (bundleExtras.getString("bloodGroup") != null) {
+			bloodGrp = bundleExtras.getString("bloodGroup");
 		}
 		if (bundleExtras.getString("locality") != null) {
 			locality = bundleExtras.getString("locality");
@@ -68,9 +69,9 @@ public class DonorListActivity extends ListActivity {
 						System.out.println(new String(responseString));
 						
 						Gson gson = new Gson();
-						DonorDetail[] donorArray = gson.fromJson(new String(responseString), DonorDetail[].class);
-						if (donorArray != null) {
-							List<DonorDetail> values = Arrays.asList(donorArray);
+						DonorRequestArray donorArray = gson.fromJson(new String(responseString), DonorRequestArray.class);
+						if (donorArray != null && donorArray.getDonorRequest() != null) {
+							List<DonorRequest> values = Arrays.asList(donorArray.getDonorRequest());
 							DonorArrayAdapter adapter = new DonorArrayAdapter(getApplicationContext(),
 									R.layout.activity_donor_item, values);
 							setListAdapter(adapter);
@@ -102,17 +103,19 @@ public class DonorListActivity extends ListActivity {
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		DonorDetail item = (DonorDetail) getListAdapter().getItem(position);
+		DonorRequest item = (DonorRequest) getListAdapter().getItem(position);
 		Toast.makeText(this, item.getName() + " selected", Toast.LENGTH_LONG).show();
+		Intent intent = new Intent(getApplicationContext(), DonorDetailsActivity.class);
+		intent.putExtra("DonorID", item.getDonorId());
 	}
 
-	private class DonorArrayAdapter extends ArrayAdapter<DonorDetail> {
+	private class DonorArrayAdapter extends ArrayAdapter<DonorRequest> {
 
-		HashMap<DonorDetail, Integer> mIdMap = new HashMap<DonorDetail, Integer>();
+		HashMap<DonorRequest, Integer> mIdMap = new HashMap<DonorRequest, Integer>();
 		private final Context context;
 
 		public DonorArrayAdapter(Context context, int textViewResourceId,
-				List<DonorDetail> objects) {
+				List<DonorRequest> objects) {
 			super(context, textViewResourceId, objects);
 			this.context = context;
 			for (int i = 0; i < objects.size(); ++i) {
@@ -122,7 +125,7 @@ public class DonorListActivity extends ListActivity {
 
 		@Override
 		public long getItemId(int position) {
-			DonorDetail item = getItem(position);
+			DonorRequest item = getItem(position);
 			return mIdMap.get(item);
 		}
 
@@ -137,7 +140,7 @@ public class DonorListActivity extends ListActivity {
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			View rowView = inflater.inflate(R.layout.activity_donor_item,
 					parent, false);
-			DonorDetail item = getItem(position);
+			DonorRequest item = getItem(position);
 			TextView bloodGrp = (TextView) rowView.findViewById(R.id.bloodGrp);
 			bloodGrp.setText(item.getBloodGroup());
 			TextView nameAddress = (TextView) rowView.findViewById(R.id.nameAddress);

@@ -1,6 +1,7 @@
 package com.sevaikarangal.blooddonationapp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,10 +25,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.sevaikarangal.blooddonationapp.bean.DonorRequest;
+import com.sevaikarangal.blooddonationapp.bean.DonorRequestArray;
 import com.sevaikarangal.blooddonationapp.bean.RequestInfo;
+import com.sevaikarangal.blooddonationapp.bean.RequestInfoArray;
 
 public class RequestListActivity extends ListActivity {
 
@@ -58,8 +63,8 @@ public class RequestListActivity extends ListActivity {
 		String city = null;
 		String locality = null;
 
-		if (bundleExtras.getString("bloodGrp") != null) {
-			bloodGrp = bundleExtras.getString("bloodGrp");
+		if (bundleExtras.getString("bloodGroup") != null) {
+			bloodGrp = bundleExtras.getString("bloodGroup");
 		}
 		if (bundleExtras.getString("locality") != null) {
 			locality = bundleExtras.getString("locality");
@@ -86,10 +91,14 @@ public class RequestListActivity extends ListActivity {
 
 						System.out.println(responseString);
 						
-						List<RequestInfo> values = new ArrayList<RequestInfo>();
-						RequestArrayAdapter adapter = new RequestArrayAdapter(getApplicationContext(),
+						Gson gson = new Gson();
+						RequestInfoArray requestInfoArray = gson.fromJson(new String(responseString), RequestInfoArray.class);
+						if (requestInfoArray != null && requestInfoArray.getRequestInfo() != null) {
+							List<RequestInfo> values = Arrays.asList(requestInfoArray.getRequestInfo());
+							RequestArrayAdapter adapter = new RequestArrayAdapter(getApplicationContext(),
 								R.layout.activity_request_item, values);
-						setListAdapter(adapter);
+							setListAdapter(adapter);
+						}
 					}
 
 					@Override
@@ -120,6 +129,9 @@ public class RequestListActivity extends ListActivity {
 		RequestInfo item = (RequestInfo) getListAdapter().getItem(position);
 		Toast.makeText(this, item.getBloodGroup() + " selected",
 				Toast.LENGTH_LONG).show();
+		
+		Intent intent = new Intent(getApplicationContext(), RequestDetailsActivity.class);
+		intent.putExtra("RequestID", item.getRequestId());
 	}
 
 	private class RequestArrayAdapter extends ArrayAdapter<RequestInfo> {

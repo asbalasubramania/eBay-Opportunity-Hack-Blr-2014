@@ -2,7 +2,7 @@ package com.sevaikarangal.blooddonationapp.bean;
 
 import java.util.Date;
 
-public class DonorDetail {
+public class DonorRequest {
 	
 	private Long donorId;
 	private String email;

@@ -40,15 +40,14 @@ public class RequestActivity extends Activity {
 	String[] bloudgroups = { "A+", "B+", "A", "O", "O+" };
 
 	String reqid = new String();
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_request);
 
-
 		addItemsOnSpinners();
-		
+
 		Button submit = (Button) findViewById(R.id.button1);
 		submit.setOnClickListener(new View.OnClickListener() {
 
@@ -59,30 +58,39 @@ public class RequestActivity extends Activity {
 				EditText mEdit3 = (EditText) findViewById(R.id.hospital);
 				EditText mEdit4 = (EditText) findViewById(R.id.contactp);
 				EditText mEdit5 = (EditText) findViewById(R.id.contactn);
-//				EditText mEdit6 = (EditText) findViewById(R.id.location);
-//				EditText mEdit7 = (EditText) findViewById(R.id.date);
+				// EditText mEdit6 = (EditText) findViewById(R.id.location);
+				// EditText mEdit7 = (EditText) findViewById(R.id.date);
 				EditText mEdit8 = (EditText) findViewById(R.id.city);
 
 				RequestInfo rq = new RequestInfo();
 				rq.setBloodGroup(spinner.getSelectedItem().toString());
 				if (mEdit1.getText().toString().equals("")) {
-					Toast.makeText(getApplicationContext(), "Mandatory : No. of Units", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(),
+							"Mandatory : No. of Units", Toast.LENGTH_SHORT)
+							.show();
 					return;
 				}
 				if (mEdit2.getText().toString().equals("")) {
-					Toast.makeText(getApplicationContext(), "Mandatory : Patient Name", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(),
+							"Mandatory : Patient Name", Toast.LENGTH_SHORT)
+							.show();
 					return;
 				}
 				if (mEdit3.getText().toString().equals("")) {
-					Toast.makeText(getApplicationContext(), "Mandatory : Hospital", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(),
+							"Mandatory : Hospital", Toast.LENGTH_SHORT).show();
 					return;
 				}
 				if (mEdit4.getText().toString().equals("")) {
-					Toast.makeText(getApplicationContext(), "Mandatory : Contact Person", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(),
+							"Mandatory : Contact Person", Toast.LENGTH_SHORT)
+							.show();
 					return;
 				}
 				if (mEdit5.getText().toString().equals("")) {
-					Toast.makeText(getApplicationContext(), "Mandatory : Contact Number", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(),
+							"Mandatory : Contact Number", Toast.LENGTH_SHORT)
+							.show();
 					return;
 				}
 				Pattern pattern = Pattern.compile("\\d{10}");
@@ -95,27 +103,15 @@ public class RequestActivity extends Activity {
 				  Toast.makeText(getApplicationContext(), "Mandatory : Phone Number must be 10 digits", Toast.LENGTH_SHORT).show();
 				  return;
 			    }
-//				if (mEdit6.getText().toString().equals("")) {
-//					Toast.makeText(getApplicationContext(), "Mandatory : Locality", Toast.LENGTH_SHORT).show();
-//					return;
-//				}
-//				if (mEdit7.getText().toString().equals("")) {
-//					Toast.makeText(getApplicationContext(), "Mandatory : Date when required", Toast.LENGTH_SHORT).show();
-//					return;
-//				}
-				if (mEdit8.getText().toString().equals("")) {
-					Toast.makeText(getApplicationContext(), "Mandatory : City", Toast.LENGTH_SHORT).show();
-					return;
-				}
 				rq.setBloodUnits(Integer.parseInt(mEdit1.getText().toString()));
 				rq.setPatientName(mEdit2.getText().toString());
 				rq.setHospital(mEdit3.getText().toString());
 				rq.setContactPerson(mEdit4.getText().toString());
-				if (mEdit5.getText() != null) rq.setContactNumber(Long.parseLong(mEdit5.getText().toString()));
+				if (mEdit5.getText() != null)
+					rq.setContactNumber(Long.parseLong(mEdit5.getText()
+							.toString()));
 				rq.setLocality(locality.getSelectedItem().toString());
-				rq.setRequestDate(new  Date());
-				//mEdit7.getText().toString());
-				rq.setCity(mEdit8.getText().toString());
+				rq.setRequestDate(new Date());
 
 				AsyncHttpClient client = new AsyncHttpClient();
 
@@ -155,7 +151,7 @@ public class RequestActivity extends Activity {
 						RequestActivity2.class);
 				System.out.println(rq.getinfoinstr());
 				reqobj.putExtra("info", rq.getinfoinstr());
-				reqobj.putExtra("reqid",rq.getContactNumber() );
+				reqobj.putExtra("reqid", rq.getContactNumber());
 				startActivity(reqobj);
 
 				// remove later
@@ -177,7 +173,6 @@ public class RequestActivity extends Activity {
 
 	}
 
-
 	public void addItemsOnSpinners() {
 		spinner = (Spinner) findViewById(R.id.spinner1);
 		List<String> list = new ArrayList<String>();
@@ -194,7 +189,7 @@ public class RequestActivity extends Activity {
 		dataAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(dataAdapter);
-		
+
 		locality = (Spinner) findViewById(R.id.spinner3);
 		List<String> list2 = new ArrayList<String>();
 		list2.add("Abbigere");
