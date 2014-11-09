@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -137,6 +138,13 @@ public class SubscribeActivity extends Activity {
 
 							bgp = jsobobj.getString("bloodGroup");
 							city = jsobobj.getString("city");
+							
+							Editor edit = ((DonorApplication)getApplication()).getPref().edit();
+							edit.putString("DonorId", jsobobj.getString("donorId"));
+							edit.putString("City", city);
+							edit.putString("BloodGroup", bgp);
+							edit.putString("Locality", jsobobj.getString("locality"));
+							edit.commit();
 
 						} catch (JSONException e1) {
 							// TODO Auto-generated catch block
@@ -144,7 +152,7 @@ public class SubscribeActivity extends Activity {
 						}
 						System.out.println(bgp);
 						System.out.println(city);
-
+						
 						Intent intent = new Intent(SubscribeActivity.this,
 								NotifyService.class);
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
