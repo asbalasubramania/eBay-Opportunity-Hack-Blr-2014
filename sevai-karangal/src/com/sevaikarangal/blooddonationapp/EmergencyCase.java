@@ -9,6 +9,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 public class EmergencyCase extends Activity {
 
@@ -21,11 +22,23 @@ public class EmergencyCase extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.emergency);
+		final Bundle bundle = getIntent().getExtras();
+		//locMgr = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		//locMgr.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0,
+			//	new geoUpdate());
+		//Location lc = locMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		
+		 String str = new String();
+         if (bundle.getString("reqid") != null) {
+                 str = bundle.getString("reqid");
 
-		locMgr = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		locMgr.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0,
-				new geoUpdate());
-		Location lc = locMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+         }
+
+         Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
+
+         //System.out.println("got reqdid"+str);
+
+         //make the rest call here
 	}
 
 	public void openRequestActivity(View view) {

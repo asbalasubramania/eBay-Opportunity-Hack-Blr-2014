@@ -6,11 +6,10 @@ import java.util.List;
 
 import org.apache.http.Header;
 import org.apache.http.entity.StringEntity;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -20,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.sevaikarangal.blooddonationapp.bean.DonorDetail;
@@ -116,35 +116,25 @@ public class SubscribeActivity extends Activity {
 					@Override
 					public void onSuccess(int statusCode, Header[] headers,
 							byte[] response) {
-						// Toast.makeText(getApplicationContext(),
-						// new String(response),
-						// Toast.LENGTH_LONG).show();
-
-						JSONObject jsobobj = null;
-						try {
-							jsobobj = new JSONObject(new String(response));
-						} catch (JSONException e) {
-							e.printStackTrace();
-						}
-						// JSONObject job2 = new JSONObject();
-						String bgp = new String();
-						String city = new String();
-						System.out.println(jsobobj);
-						try {
-							bgp = jsobobj.getString("bloodGroup");
-							city = jsobobj.getString("city");
-						} catch (JSONException e1) {
-							e1.printStackTrace();
-						}
-						System.out.println(bgp);
-						System.out.println(city);
-
+						
+						Gson gson = new Gson();
+						DonorDetail donorDetail = gson.fromJson(new String(response), DonorDetail.class);
+						
+						//Add the Donor details to shared preference
+						Editor edit = ((DonorApplication)getApplication()).getPref().edit();
+						edit.putLong("DonorId", donorDetail.getDonorId());
+						edit.putString("City", donorDetail.getCity());
+						edit.putString("BloodGroup", donorDetail.getBloodGroup());
+						edit.putString("Locality", donorDetail.getLocality());
+						edit.commit();
+						
 						Intent intent = new Intent(SubscribeActivity.this,
 								NotifyService.class);
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-						intent.putExtra("bgp", bgp);
-						intent.putExtra("city", city);
+						intent.putExtra("bgp", donorDetail.getBloodGroup());
+						intent.putExtra("city", donorDetail.getCity());
+						intent.putExtra("loc", donorDetail.getLocality());
 						startService(intent);
 
 					}

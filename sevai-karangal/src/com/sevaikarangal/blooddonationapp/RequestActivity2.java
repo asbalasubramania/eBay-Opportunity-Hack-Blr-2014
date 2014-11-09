@@ -50,6 +50,26 @@ public class RequestActivity2 extends Activity {
 
 			}
 		});
+		
+		  Button emer = (Button) findViewById(R.id.emer);
+          emer.setOnClickListener(new View.OnClickListener() {
+
+                  @Override
+                  public void onClick(View v) {
+                          // TODO Auto-generated method stub
+
+                          String str = new String();
+                          if (bundle.getString("reqd") != null) {
+                                  str = bundle.getString("reqid");
+
+                          }
+
+                          Intent intent = new Intent(RequestActivity2.this,EmergencyCase.class);
+                          intent.putExtra("reqid",str );
+                          startActivity(intent);
+
+                  }
+          });
 	}
 
 	@Override

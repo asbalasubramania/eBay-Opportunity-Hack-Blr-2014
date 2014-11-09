@@ -36,6 +36,8 @@ public class RequestActivity extends Activity {
 	String spinnerout = "";
 	String[] bloudgroups = { "A+", "B+", "A", "O", "O+" };
 
+	String reqid = new String();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -108,7 +110,7 @@ public class RequestActivity extends Activity {
 						RequestActivity2.class);
 				System.out.println(rq.getinfoinstr());
 				reqobj.putExtra("info", rq.getinfoinstr());
-
+				reqobj.putExtra("reqid",new String(reqid) );
 				startActivity(reqobj);
 
 				// remove later
