@@ -11,7 +11,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,7 +18,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.sevaikarangal.blooddonationapp.bean.DonorRequest;
@@ -86,13 +84,36 @@ public class SubscribeActivity extends Activity {
 								Toast.makeText(getApplicationContext(),
 										R.string.subSuccess, Toast.LENGTH_LONG)
 										.show();
-								Intent intent = new Intent(
+								
+								String donorId = (new String(response));
+								Intent requestListActivityIntent = new Intent(
 										SubscribeActivity.this,
 										RequestListActivity.class);
-								intent.putExtra("bloodGrp", rq.getBloodGroup());
-								intent.putExtra("locality", rq.getLocality());
-								intent.putExtra("city", rq.getCity());
-								startActivity(intent);
+
+								
+								Intent notifyServiceIntent = new Intent(SubscribeActivity.this,
+										NotifyService.class);
+								notifyServiceIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+								notifyServiceIntent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+								notifyServiceIntent.putExtra("bloodGroup", rq.getBloodGroup());
+								notifyServiceIntent.putExtra("city", rq.getCity());
+								notifyServiceIntent.putExtra("locality", rq.getLocality());
+								startService(notifyServiceIntent);
+								
+								
+								//Add the Donor details to shared preference
+								Editor edit = ((DonorApplication)getApplication()).getPref().edit();
+								edit.putString("DonorId", donorId);
+								edit.putString("City", rq.getCity());
+								edit.putString("BloodGroup", rq.getBloodGroup());
+								edit.putString("Locality", rq.getLocality());
+								edit.commit();
+								
+								
+								requestListActivityIntent.putExtra("bloodGroup", rq.getBloodGroup());
+								requestListActivityIntent.putExtra("locality", rq.getLocality());
+								requestListActivityIntent.putExtra("city", rq.getCity());
+								startActivity(requestListActivityIntent);
 							}
 
 							@Override
@@ -107,46 +128,44 @@ public class SubscribeActivity extends Activity {
 			}
 		});
 
-		AsyncHttpClient client = new AsyncHttpClient();
-
-		client.get(
-				getApplicationContext(),
-				"http://1-dot-blood-donor-svc.appspot.com/datastore/donor/5639445604728832",
-				new AsyncHttpResponseHandler() {
-					@Override
-					public void onSuccess(int statusCode, Header[] headers,
-							byte[] response) {
-						
-						Gson gson = new Gson();
-						DonorRequest donorDetail = gson.fromJson(new String(response), DonorRequest.class);
-						
-						//Add the Donor details to shared preference
-						Editor edit = ((DonorApplication)getApplication()).getPref().edit();
-						edit.putLong("DonorId", donorDetail.getDonorId());
-						edit.putString("City", donorDetail.getCity());
-						edit.putString("BloodGroup", donorDetail.getBloodGroup());
-						edit.putString("Locality", donorDetail.getLocality());
-						edit.commit();
-						
-						Intent intent = new Intent(SubscribeActivity.this,
-								NotifyService.class);
-						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-						intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-						intent.putExtra("bloodGroup", donorDetail.getBloodGroup());
-						intent.putExtra("city", donorDetail.getCity());
-						intent.putExtra("locality", donorDetail.getLocality());
-						startService(intent);
-
-					}
-
-					@Override
-					public void onFailure(int statusCode, Header[] headers,
-							byte[] errorResponse, Throwable e) {
-						Toast.makeText(getApplicationContext(),
-								new String(errorResponse), Toast.LENGTH_LONG)
-								.show();
-					}
-				});
+//		SharedPreferences pref = ((DonorApplication) getApplication())
+//				.getPref();
+//		//Back upplan for demo
+//		String donorId = pref.getString("DonorId", "5639445604728832");
+//		
+//		AsyncHttpClient client = new AsyncHttpClient();
+//
+//		client.get(
+//				getApplicationContext(),
+//				"http://1-dot-blood-donor-svc.appspot.com/datastore/donor/"+donorId,
+//				new AsyncHttpResponseHandler() {
+//					@Override
+//					public void onSuccess(int statusCode, Header[] headers,
+//							byte[] response) {
+//						
+//						Gson gson = new Gson();
+//						DonorRequest donorDetail = gson.fromJson(new String(response), DonorRequest.class);
+//						
+//						
+//						Intent intent = new Intent(SubscribeActivity.this,
+//								NotifyService.class);
+//						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//						intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+//						intent.putExtra("bloodGroup", donorDetail.getBloodGroup());
+//						intent.putExtra("city", donorDetail.getCity());
+//						intent.putExtra("locality", donorDetail.getLocality());
+//						startService(intent);
+//
+//					}
+//
+//					@Override
+//					public void onFailure(int statusCode, Header[] headers,
+//							byte[] errorResponse, Throwable e) {
+//						Toast.makeText(getApplicationContext(),
+//								new String(errorResponse), Toast.LENGTH_LONG)
+//								.show();
+//					}
+//				});
 
 	}
 
