@@ -1,6 +1,7 @@
 package com.sevaikarangal.blooddonationapp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,10 +21,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sevaikarangal.blooddonationapp.bean.DonorDetail;
+import com.sevaikarangal.blooddonationapp.bean.RequestInfo;
 
 public class DonorListActivity extends ListActivity {
 
@@ -55,7 +58,7 @@ public class DonorListActivity extends ListActivity {
 		if (bloodGrp != null) params.add("bloodGroup", bloodGrp);
 
 		client.get(getApplicationContext(),
-				"http://1-dot-blood-donor-svc.appspot.com/datastore/requestor",
+				"http://1-dot-blood-donor-svc.appspot.com/datastore/donor",
 				params, new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int statusCode, Header[] headers,
@@ -66,7 +69,10 @@ public class DonorListActivity extends ListActivity {
 
 						System.out.println(new String(responseString));
 						
-						List<DonorDetail> values = new ArrayList<DonorDetail>();
+						Gson gson = new Gson();
+						DonorDetail[] donorArray = gson.fromJson(new String(responseString), DonorDetail[].class);
+
+						List<DonorDetail> values = Arrays.asList(donorArray);
 						DonorArrayAdapter adapter = new DonorArrayAdapter(getApplicationContext(),
 								R.layout.activity_donor_item, values);
 						setListAdapter(adapter);
