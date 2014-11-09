@@ -87,15 +87,14 @@ public class RequestActivity extends Activity {
 				}
 				Pattern pattern = Pattern.compile("\\d{10}");
 		        Matcher matcher = pattern.matcher(mEdit5.getText().toString());
-			 
-			      if (matcher.matches()) {
-			    	  System.out.println("Phone Number Valid");
-			      }
-			      else
-			      {
-			    	  Toast.makeText(getApplicationContext(), "Mandatory : Phone Number must be 10 digits", Toast.LENGTH_SHORT).show();
-					  return;
-			      }
+			    if (matcher.matches()) {
+				  System.out.println("Phone Number Valid");
+			    }
+			    else
+			    {
+				  Toast.makeText(getApplicationContext(), "Mandatory : Phone Number must be 10 digits", Toast.LENGTH_SHORT).show();
+				  return;
+			    }
 //				if (mEdit6.getText().toString().equals("")) {
 //					Toast.makeText(getApplicationContext(), "Mandatory : Locality", Toast.LENGTH_SHORT).show();
 //					return;
