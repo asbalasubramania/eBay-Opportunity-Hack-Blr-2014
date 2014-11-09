@@ -36,6 +36,7 @@ public class EmergencyCase extends Activity {
 			//	new geoUpdate());
 		//Location lc = locMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		
+		// Though it says reqid its actually phone no. 
 		 String str = new String();
          if (bundle.getString("reqid") != null) {
                  str = bundle.getString("reqid");
@@ -49,7 +50,7 @@ public class EmergencyCase extends Activity {
          //make the rest call here
          
          
-         AsyncHttpClient client = new AsyncHttpClient();
+        /* AsyncHttpClient client = new AsyncHttpClient();
 
  		client.get(
  				getApplicationContext(),
@@ -94,7 +95,7 @@ public class EmergencyCase extends Activity {
  						System.out.println(bgp);
  						System.out.println(city);
  					}
-				});
+				});*/
  			
          
 	}

@@ -109,7 +109,7 @@ public class RequestActivity extends Activity {
 						RequestActivity2.class);
 				System.out.println(rq.getinfoinstr());
 				reqobj.putExtra("info", rq.getinfoinstr());
-				reqobj.putExtra("reqid",new String(reqid) );
+				reqobj.putExtra("reqid",rq.getContactNumber() );
 				startActivity(reqobj);
 
 				// remove later
