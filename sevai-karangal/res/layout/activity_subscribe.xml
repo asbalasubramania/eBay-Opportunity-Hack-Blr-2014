@@ -98,6 +98,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:ems="10"
+            android:maxLength="10"
             android:inputType="phone" />
     </TableRow>
 

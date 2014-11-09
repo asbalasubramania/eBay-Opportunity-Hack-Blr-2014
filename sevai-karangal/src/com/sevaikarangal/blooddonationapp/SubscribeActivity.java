@@ -52,7 +52,6 @@ public class SubscribeActivity extends Activity {
 				// EditText age = (EditText) findViewById(R.id.age);
 				EditText height = (EditText) findViewById(R.id.height);
 				EditText weight = (EditText) findViewById(R.id.weight);
-				EditText city = (EditText) findViewById(R.id.city);
 
 				
 				if (personName.getText().toString().equals("")) {
@@ -92,7 +91,7 @@ public class SubscribeActivity extends Activity {
 							.toString()));
 				rq.setBloodGroup(locality.getSelectedItem().toString());
 				rq.setLastDonatedDate(null);
-				rq.setCity(city.getText().toString());
+				rq.setCity("Bangalore");
 				rq.setHeight(Double.parseDouble(height.getText().toString()));
 				rq.setWeight(Double.parseDouble(weight.getText().toString()));
 
