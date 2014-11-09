@@ -74,5 +74,6 @@
     <string name="smsContact">SMS ur Contacts</string>
     <string name="shareReq">Share Request</string>
     <string name="listDonors">List of Donors</string>
+    <string name="settings">Settings</string>
 
 </resources>

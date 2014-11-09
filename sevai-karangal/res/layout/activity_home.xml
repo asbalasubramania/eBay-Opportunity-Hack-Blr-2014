@@ -3,7 +3,8 @@
     android:layout_height="fill_parent"
     android:background="@drawable/homescreen"
     android:orientation="vertical"
-    android:padding="30dp" >
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp" >
 
     <Button
         android:id="@+id/request"
@@ -32,5 +33,14 @@
         android:layout_marginTop="5dp"
         android:onClick="openMyListActivity"
         android:text="@string/mylist" />
+    
+    <Button
+        android:id="@+id/settings"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:onClick="openMySettingsActivity"
+        android:text="@string/settings" />
 
 </LinearLayout>

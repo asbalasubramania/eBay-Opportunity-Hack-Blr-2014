@@ -32,6 +32,14 @@ public class HomeActivity extends Activity {
 		intent.putExtra("phoneNumber", pref.getString("PhoneNumber", ""));
 		startActivity(intent);
 	}
+	
+	public void openMySettingsActivity(View view) {
+		Intent intent = new Intent(this, ProfileManagementActivity.class);
+		SharedPreferences pref = ((DonorApplication) getApplication())
+				.getPref();
+		intent.putExtra("phoneNumber", pref.getString("PhoneNumber", ""));
+		startActivity(intent);
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

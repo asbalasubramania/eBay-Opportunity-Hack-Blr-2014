@@ -37,8 +37,8 @@
                 style="@style/WhiteBoldFont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="25dp"
                 android:text="Profile Management"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textSize="24sp" />
@@ -54,6 +54,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="150dp"
+        android:onClick="openUpdateProfileActivity"
         android:text="Update Profile" />
 
     <Button

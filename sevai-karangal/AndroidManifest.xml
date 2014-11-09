@@ -65,6 +65,16 @@
             android:name="com.sevaikarangal.blooddonationapp.RequestItemActivity"
             android:label="@string/title_activity_request_item" >
         </activity>
+        
+        <activity
+            android:name="com.sevaikarangal.blooddonationapp.ProfileManagementActivity"
+            android:label="@string/title_activity_request_item" >
+        </activity>
+        
+        <activity
+            android:name="com.sevaikarangal.blooddonationapp.UpdateProfileActivity"
+            android:label="@string/title_activity_request_item" >
+        </activity>
     </application>
 
 </manifest>
