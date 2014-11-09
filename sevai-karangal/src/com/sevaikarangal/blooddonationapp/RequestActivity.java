@@ -136,9 +136,12 @@ public class RequestActivity extends Activity {
 		List<String> list = new ArrayList<String>();
 		list.add("O+ve");
 		list.add("O-ve");
+		list.add("A+ve");
 		list.add("A-ve");
-		list.add("B-ve");
 		list.add("B+ve");
+		list.add("B-ve");
+		list.add("AB+ve");
+		list.add("AB-ve");
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, list);
 		dataAdapter
