@@ -5,21 +5,38 @@
     android:background="@drawable/otherpages"
     android:orientation="vertical" >
 
-    <LinearLayout
+    
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/WhiteBoldFont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/p_requestor_details"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="24sp" />
+
+        <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
-        android:layout_weight="1"
         android:layout_height="0dip"
+        android:layout_weight="1"
         android:orientation="horizontal" >
 
-        <include layout="@layout/activity_request_list" />
-    </LinearLayout>
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+       
+
+ 		</LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_gravity="bottom"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:orientation="horizontal" >
 
         <Button
@@ -31,7 +48,7 @@
             android:text="@string/smsContact" />
 
         <Button
-            android:id="@+id/emer"
+            android:id="@+id/shareReq"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

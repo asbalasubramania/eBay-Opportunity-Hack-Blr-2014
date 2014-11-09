@@ -129,6 +129,9 @@ public class RequestListActivity extends ListActivity {
 		RequestInfo item = (RequestInfo) getListAdapter().getItem(position);
 		Toast.makeText(this, item.getBloodGroup() + " selected",
 				Toast.LENGTH_LONG).show();
+		
+		Intent intent = new Intent(getApplicationContext(), RequestDetailsActivity.class);
+		intent.putExtra("RequestID", item.getRequestId());
 	}
 
 	private class RequestArrayAdapter extends ArrayAdapter<RequestInfo> {

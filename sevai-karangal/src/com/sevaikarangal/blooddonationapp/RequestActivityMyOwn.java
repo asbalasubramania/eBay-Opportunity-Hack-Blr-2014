@@ -25,13 +25,6 @@ import com.sevaikarangal.blooddonationapp.bean.RequestInfo;
 
 public class RequestActivityMyOwn extends ListActivity {
 
-	//Bundle bundle;
-	//Spinner spinner;
-	//String spinnerout = "";
-//	String[] bloudgroups = { "A+", "B+", "A", "O", "O+" };
-
-	//String reqid = new String();
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,7 +50,7 @@ public class RequestActivityMyOwn extends ListActivity {
 				
 				
 				client.get(getApplicationContext(),
-						"http://1-dot-blood-donor-svc.appspot.com/datastore/requestor/myrequest" ,
+						"http://1-dot-blood-donor-svc.appspot.com/datastore/requestor" ,
 						params, new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int statusCode, Header[] headers,

@@ -1,8 +1,18 @@
 package com.sevaikarangal.blooddonationapp;
 
-import android.os.Bundle;
+import org.apache.http.Header;
+
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.sevaikarangal.blooddonationapp.bean.DonorRequest;
 
 public class DonorDetailsActivity extends Activity {
 
@@ -10,6 +20,60 @@ public class DonorDetailsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_donor_details);
+
+		final Bundle bundleExtras = getIntent().getExtras();
+		
+		String donarId = null;
+		if (bundleExtras.getString("donarId") != null) {
+			donarId = bundleExtras.getString("donarId");
+		}
+
+		AsyncHttpClient client = new AsyncHttpClient();
+		RequestParams params = new RequestParams();
+		if (donarId != null)
+			params.add("donarId", donarId);
+
+		client.get(getApplicationContext(),
+				"http://1-dot-blood-donor-svc.appspot.com/datastore/donor",
+				params, new AsyncHttpResponseHandler() {
+					@Override
+					public void onSuccess(int statusCode, Header[] headers,
+							byte[] response) {
+						String responseString = new String(response);
+						Toast.makeText(getApplicationContext(),
+								new String(responseString), Toast.LENGTH_LONG)
+								.show();
+
+						System.out.println(new String(responseString));
+						Gson gson = new Gson();
+						DonorRequest donorDetails = gson.fromJson(new String(
+								responseString), DonorRequest.class);
+
+						TextView dname = (TextView) findViewById(R.id.dname_value);
+						dname.setText(donorDetails.getName());
+						TextView bloodGrp = (TextView) findViewById(R.id.dbloodgroup_value);
+						bloodGrp.setText(donorDetails.getBloodGroup());
+						TextView gender = (TextView) findViewById(R.id.dgender_value);
+						gender.setText(donorDetails.getGender());
+						TextView locality = (TextView) findViewById(R.id.dlocality_value);
+						locality.setText(donorDetails.getLocality());
+						TextView city = (TextView) findViewById(R.id.dcity_value);
+						city.setText(donorDetails.getCity());
+						TextView mobile = (TextView) findViewById(R.id.dmobile_value);
+						mobile.setText(String.valueOf(donorDetails
+								.getPhoneNumber()));
+					}
+
+					@Override
+					public void onFailure(int statusCode, Header[] headers,
+							byte[] errorResponse, Throwable e) {
+						Toast.makeText(getApplicationContext(),
+								new String(errorResponse), Toast.LENGTH_LONG)
+								.show();
+					}
+				});
+
+	
 	}
 
 	@Override

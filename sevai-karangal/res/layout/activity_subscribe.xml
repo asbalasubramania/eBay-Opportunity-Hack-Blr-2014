@@ -13,6 +13,7 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_weight="0.00" >
 
         <TextView
@@ -22,9 +23,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:text="@string/d_subscribe_title"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="24sp" />
@@ -43,7 +44,6 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_weight="0.00" >
 
         <TextView
@@ -52,9 +52,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:text="@string/d_name"
             style="@style/WhiteFont" />
 
@@ -62,9 +62,9 @@
             android:id="@+id/personName"
             android:layout_weight="1"
             android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:ems="10"
             android:inputType="textPersonName" >
             <requestFocus />
@@ -82,9 +82,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:text="@string/d_mobile_no"
             style="@style/WhiteFont" />
 
@@ -94,10 +94,11 @@
             android:layout_height="wrap_content"
 			android:layout_weight="1"
             android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:ems="10"
+            android:maxLength="10"
             android:inputType="phone" />
     </TableRow>
 
@@ -113,9 +114,9 @@
             android:layout_height="wrap_content"
 			android:layout_weight="1"
             android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:text="@string/d_gender" />
         
 		<Spinner
@@ -137,9 +138,9 @@
             android:layout_height="wrap_content"
 			android:layout_weight="1"
             android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:text="@string/d_bloodgroup"
             style="@style/WhiteFont" />
 
@@ -162,18 +163,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:text="@string/d_locality"
             style="@style/WhiteFont" />
 
-        <EditText
-            android:id="@+id/locality"
+        <Spinner
+            android:id="@+id/subLocality"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10" />
+            android:layout_weight="1" />
 
     </TableRow>
 
@@ -188,18 +188,23 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:text="@string/d_city"
             style="@style/WhiteFont" />
 
-        <EditText
+        <TextView
             android:id="@+id/city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:inputType="text" />
+            android:gravity="left"
+            android:paddingBottom="7dp"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="@string/p_bengaluru"
+            style="@style/WhiteFont" />
 
     </TableRow>
     
@@ -210,15 +215,16 @@
 
         <TextView
             android:id="@+id/textView7"
+            style="@style/WhiteFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/d_last_don_date"
+            android:layout_marginTop="-10dp"
             android:layout_weight="1"
             android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
-            style="@style/WhiteFont" />
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/d_last_don_date" />
 
         <EditText
             android:id="@+id/dateLostGiven"
@@ -241,9 +247,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:text="@string/d_height"
             style="@style/WhiteFont" />
 
@@ -253,6 +259,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:maxLength="3"
             android:inputType="number" />
 
     </TableRow>
@@ -268,9 +275,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:paddingBottom="7dp"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:text="@string/d_weight"
             style="@style/WhiteFont" />
 
@@ -280,12 +287,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:maxLength="3"
             android:inputType="number" />
 
     </TableRow>
 
-    </TableLayout>
-    </ScrollView>
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
@@ -293,6 +299,9 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:text="@string/d_register" />
+    </TableLayout>
+    </ScrollView>
+    
 
 
 </LinearLayout>
