@@ -51,6 +51,7 @@
             android:name="com.sevaikarangal.blooddonationapp.DonorListActivity"
             android:label="@string/title_activity_donor_list" >
         </activity>
+        <service android:name=".NotifyService"/>
         <activity
             android:name="com.sevaikarangal.blooddonationapp.RequestListActivity"
             android:label="@string/title_activity_request_list" >
