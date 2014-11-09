@@ -1,0 +1,38 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    tools:context=".DonorList" >
+
+    <TableRow
+        android:id="@+id/tablerow1"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="#990000"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="horizontal" 
+        android:onClick="onClickListItem">
+
+        <TextView
+            android:id="@+id/nameAddress"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="Indian Donor\nBellandur, Bangalore"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+	
+	<TextView
+	    android:id="@+id/bloodGrp"
+	    android:layout_width="wrap_content"
+	    android:layout_marginLeft="20dp"
+	    android:layout_gravity="center_vertical"
+	    android:text="A +ve"
+	    android:textColor="#FFFFFF"
+	    android:textSize="15sp" >
+	</TextView>
+</TableRow>
+
+</TableLayout>
