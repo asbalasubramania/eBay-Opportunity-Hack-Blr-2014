@@ -41,7 +41,7 @@
     <string name="p_hospital">Hospital</string>
     <string name="p_locality">Locality</string>
     <string name="p_city">City</string>
-    <string name="p_bengaluru">Bengaluru</string>
+    <string name="p_bengaluru">Bangalore</string>
     <string name="p_contact_person">Contact Person</string>
     <string name="p_contact_no">Contact No.</string>
     <string name="p_date_required">Date when Required</string>
@@ -73,5 +73,6 @@
     <string name="mylist">My Request</string>
     <string name="smsContact">SMS ur Contacts</string>
     <string name="shareReq">Share Request</string>
+    <string name="listDonors">List of Donors</string>
 
 </resources>
