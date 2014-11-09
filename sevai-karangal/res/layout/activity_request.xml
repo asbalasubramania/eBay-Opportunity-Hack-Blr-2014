@@ -115,7 +115,6 @@
 
         <EditText
             android:id="@+id/patientn"
-            style="@style/WhiteFont"
             android:layout_weight="1"
             android:gravity="left"
             android:paddingBottom="7dp"
@@ -171,7 +170,6 @@
 
         <EditText
             android:id="@+id/contactp"
-            style="@style/WhiteFont"
             android:layout_weight="1"
             android:gravity="left"
             android:paddingBottom="7dp"
