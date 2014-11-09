@@ -57,6 +57,11 @@
             android:label="@string/title_activity_request_list" >
         </activity>
         <activity
+            android:name="com.sevaikarangal.blooddonationapp.RequestActivityMyOwn"
+            android:label="@string/title_activity_request_list" >
+        </activity>
+        
+        <activity
             android:name="com.sevaikarangal.blooddonationapp.RequestItemActivity"
             android:label="@string/title_activity_request_item" >
         </activity>
