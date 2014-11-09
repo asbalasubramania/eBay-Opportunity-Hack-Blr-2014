@@ -16,9 +16,9 @@ public class RequestActivity2 extends Activity {
 		Intent intent = new Intent(this, DonorListActivity.class);
 		SharedPreferences pref = ((DonorApplication) getApplication())
 				.getPref();
-		intent.putExtra("city", pref.getString("City", "Bangalore"));
-		intent.putExtra("locality", pref.getString("Locality", "hst"));
-		intent.putExtra("bloodGroup", pref.getString("BloodGroup", "O+ve"));
+		intent.putExtra("city", pref.getString("City", null));
+		intent.putExtra("locality", pref.getString("Locality", null));
+		intent.putExtra("bloodGroup", pref.getString("BloodGroup", null));
 		startActivity(intent);
 	}
 

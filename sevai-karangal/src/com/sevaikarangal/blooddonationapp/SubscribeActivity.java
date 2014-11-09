@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.sevaikarangal.blooddonationapp.bean.DonorDetail;
+import com.sevaikarangal.blooddonationapp.bean.DonorRequest;
 
 public class SubscribeActivity extends Activity {
 
@@ -51,7 +51,7 @@ public class SubscribeActivity extends Activity {
 				EditText weight = (EditText) findViewById(R.id.weight);
 				EditText city = (EditText) findViewById(R.id.city);
 
-				final DonorDetail rq = new DonorDetail();
+				final DonorRequest rq = new DonorRequest();
 				rq.setBloodGroup(bloodGrp.getSelectedItem().toString());
 				rq.setGender(gender.getSelectedItem().toString());
 				rq.setName(personName.getText().toString());
@@ -118,7 +118,7 @@ public class SubscribeActivity extends Activity {
 							byte[] response) {
 						
 						Gson gson = new Gson();
-						DonorDetail donorDetail = gson.fromJson(new String(response), DonorDetail.class);
+						DonorRequest donorDetail = gson.fromJson(new String(response), DonorRequest.class);
 						
 						//Add the Donor details to shared preference
 						Editor edit = ((DonorApplication)getApplication()).getPref().edit();
@@ -132,9 +132,9 @@ public class SubscribeActivity extends Activity {
 								NotifyService.class);
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-						intent.putExtra("bgp", donorDetail.getBloodGroup());
+						intent.putExtra("bloodGroup", donorDetail.getBloodGroup());
 						intent.putExtra("city", donorDetail.getCity());
-						intent.putExtra("loc", donorDetail.getLocality());
+						intent.putExtra("locality", donorDetail.getLocality());
 						startService(intent);
 
 					}
