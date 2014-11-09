@@ -75,8 +75,6 @@ public class RequestActivity2 extends ListActivity {
 					public void onSuccess(int statusCode, Header[] headers,
 							byte[] response) {
 						String responseString = new String(response);
-						Toast.makeText(getApplicationContext(),
-								new String(responseString), Toast.LENGTH_LONG).show();
 
 						System.out.println(responseString);
 						

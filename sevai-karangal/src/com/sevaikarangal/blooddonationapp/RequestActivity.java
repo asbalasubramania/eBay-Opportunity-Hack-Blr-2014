@@ -58,11 +58,8 @@ public class RequestActivity extends Activity {
 				EditText mEdit3 = (EditText) findViewById(R.id.hospital);
 				EditText mEdit4 = (EditText) findViewById(R.id.contactp);
 				EditText mEdit5 = (EditText) findViewById(R.id.contactn);
-				// EditText mEdit6 = (EditText) findViewById(R.id.location);
-				// EditText mEdit7 = (EditText) findViewById(R.id.date);
-				EditText mEdit8 = (EditText) findViewById(R.id.city);
 
-				RequestInfo rq = new RequestInfo();
+				final RequestInfo rq = new RequestInfo();
 				rq.setBloodGroup(spinner.getSelectedItem().toString());
 				if (mEdit1.getText().toString().equals("")) {
 					Toast.makeText(getApplicationContext(),
@@ -121,8 +118,6 @@ public class RequestActivity extends Activity {
 				} catch (UnsupportedEncodingException e1) {
 					e1.printStackTrace();
 				}
-				Toast.makeText(getApplicationContext(), rq.toString(),
-						Toast.LENGTH_LONG).show();
 				client.post(
 						getApplicationContext(),
 						"http://1-dot-blood-donor-svc.appspot.com/datastore/requestor",
@@ -134,6 +129,17 @@ public class RequestActivity extends Activity {
 								Toast.makeText(getApplicationContext(),
 										new String(response), Toast.LENGTH_LONG)
 										.show();
+								// SEND the request object to the server and call the API
+								Intent reqobj = new Intent(RequestActivity.this,
+										RequestActivity2.class);
+								System.out.println(rq.getinfoinstr());
+								reqobj.putExtra("info", rq.getinfoinstr());
+								reqobj.putExtra("reqid", rq.getContactNumber());
+								reqobj.putExtra("bloodGroup", rq.getBloodGroup());
+								reqobj.putExtra("city", rq.getCity());
+								reqobj.putExtra("locality", rq.getLocality());
+								startActivity(reqobj);
+								
 							}
 
 							@Override
@@ -146,22 +152,7 @@ public class RequestActivity extends Activity {
 							}
 						});
 
-				// SEND the request object to the server and call the API
-				Intent reqobj = new Intent(RequestActivity.this,
-						RequestActivity2.class);
-				System.out.println(rq.getinfoinstr());
-				reqobj.putExtra("info", rq.getinfoinstr());
-				reqobj.putExtra("reqid", rq.getContactNumber());
-				startActivity(reqobj);
 
-				// remove later
-				Toast.makeText(getApplicationContext(),
-						(String) spinner.getSelectedItem().toString(),
-						Toast.LENGTH_LONG).show();
-
-				Toast.makeText(getApplicationContext(),
-						(String) mEdit1.getText().toString(), Toast.LENGTH_LONG)
-						.show();
 
 			}
 		});

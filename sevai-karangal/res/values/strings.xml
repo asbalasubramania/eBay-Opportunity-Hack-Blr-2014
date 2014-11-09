@@ -71,5 +71,7 @@
     <string name="mylist">My Request</string>
     <string name="smsContact">SMS ur Contacts</string>
     <string name="shareReq">Share Request</string>
+    <string name="Sorry">Sorry</string>
+    <string name="SorryMessage">Sorry there is no activities.</string>
 
 </resources>
