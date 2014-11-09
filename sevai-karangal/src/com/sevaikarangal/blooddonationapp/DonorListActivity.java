@@ -1,6 +1,5 @@
 package com.sevaikarangal.blooddonationapp;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -26,7 +25,6 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.sevaikarangal.blooddonationapp.bean.DonorDetail;
-import com.sevaikarangal.blooddonationapp.bean.RequestInfo;
 
 public class DonorListActivity extends ListActivity {
 

@@ -5,34 +5,38 @@
     android:background="@drawable/otherpages"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="     Your Request has been submitted succesfully !! " />
+        android:layout_weight="1"
+        android:layout_height="0dip"
+        android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/donorlist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="100dp"
-        android:text="Get the Donor List"
-        android:onClick="openDonorList" />
+        <include layout="@layout/activity_request_list" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/sendsms"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_gravity="bottom"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="100dp"
-        android:text="Send SMS" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/emer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Emergency !! " />
+        <Button
+            android:id="@+id/sendsms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/smsContact" />
+
+        <Button
+            android:id="@+id/emer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/shareReq" />
+    </LinearLayout>
 
 </LinearLayout>
