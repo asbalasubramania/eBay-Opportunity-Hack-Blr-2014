@@ -25,13 +25,6 @@ import com.sevaikarangal.blooddonationapp.bean.RequestInfo;
 
 public class RequestActivityMyOwn extends ListActivity {
 
-	//Bundle bundle;
-	//Spinner spinner;
-	//String spinnerout = "";
-//	String[] bloudgroups = { "A+", "B+", "A", "O", "O+" };
-
-	//String reqid = new String();
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

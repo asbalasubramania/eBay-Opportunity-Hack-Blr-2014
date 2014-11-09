@@ -43,8 +43,6 @@ public class RequestDetailsActivity extends Activity {
 								new String(responseString), Toast.LENGTH_LONG)
 								.show();
 
-						System.out.println(new String(responseString));
-
 						Gson gson = new Gson();
 						RequestInfo donorDetails = gson.fromJson(new String(
 								responseString), RequestInfo.class);

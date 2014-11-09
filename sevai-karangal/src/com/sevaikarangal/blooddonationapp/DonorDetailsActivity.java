@@ -2,17 +2,17 @@ package com.sevaikarangal.blooddonationapp;
 
 import org.apache.http.Header;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.sevaikarangal.blooddonationapp.bean.DonorDetail;
-
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
-import android.widget.TextView;
-import android.widget.Toast;
+import com.sevaikarangal.blooddonationapp.bean.DonorRequest;
 
 public class DonorDetailsActivity extends Activity {
 
@@ -45,10 +45,9 @@ public class DonorDetailsActivity extends Activity {
 								.show();
 
 						System.out.println(new String(responseString));
-
 						Gson gson = new Gson();
-						DonorDetail donorDetails = gson.fromJson(new String(
-								responseString), DonorDetail.class);
+						DonorRequest donorDetails = gson.fromJson(new String(
+								responseString), DonorRequest.class);
 
 						TextView dname = (TextView) findViewById(R.id.dname_value);
 						dname.setText(donorDetails.getName());
