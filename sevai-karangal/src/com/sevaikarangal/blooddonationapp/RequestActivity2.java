@@ -122,7 +122,7 @@ public class RequestActivity2 extends ListActivity {
 			}
 		});
 
-		Button emer = (Button) findViewById(R.id.emer);
+		Button emer = (Button) findViewById(R.id.shareReq);
 		emer.setOnClickListener(new View.OnClickListener() {
 
 			@Override
