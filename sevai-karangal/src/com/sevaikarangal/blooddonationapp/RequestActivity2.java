@@ -53,16 +53,24 @@ public class RequestActivity2 extends Activity {
 			}
 		});
 
-		Button emer = (Button) findViewById(R.id.emer);
+		Button emer = (Button) findViewById(R.id.shareReq);
 		emer.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
+				String str = new String();
+				if (bundle.getString("info") != null) {
+					str = bundle.getString("info");
+
+				}
+
 				Intent sendIntent = new Intent();
 				sendIntent.setAction(Intent.ACTION_SEND);
-				sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+				sendIntent.putExtra(Intent.EXTRA_TEXT,
+						"Urgent Need for Blood. Details : " + str);
 				sendIntent.setType("text/plain");
-				startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
+				startActivity(Intent.createChooser(sendIntent, getResources()
+						.getText(R.string.shareReq)));
 
 			}
 		});
@@ -74,5 +82,4 @@ public class RequestActivity2 extends Activity {
 		getMenuInflater().inflate(R.menu.subscribe, menu);
 		return true;
 	}
-
 }
