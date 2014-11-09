@@ -13,6 +13,7 @@ import org.apache.http.entity.StringEntity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -132,12 +133,16 @@ public class RequestActivity extends Activity {
 								// SEND the request object to the server and call the API
 								Intent reqobj = new Intent(RequestActivity.this,
 										RequestActivity2.class);
-								System.out.println(rq.getinfoinstr());
 								reqobj.putExtra("info", rq.getinfoinstr());
 								reqobj.putExtra("reqid", rq.getContactNumber());
 								reqobj.putExtra("bloodGroup", rq.getBloodGroup());
 								reqobj.putExtra("city", rq.getCity());
 								reqobj.putExtra("locality", rq.getLocality());
+								
+								Editor edit = ((DonorApplication)getApplication()).getPref().edit();
+								edit.putString("PhoneNumber", Long.toString(rq.getContactNumber()));
+								edit.commit();
+								
 								startActivity(reqobj);
 								
 							}

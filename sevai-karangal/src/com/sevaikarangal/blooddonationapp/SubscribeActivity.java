@@ -156,48 +156,8 @@ public class SubscribeActivity extends Activity {
 										.show();
 							}
 						});
-			}
+				}
 		});
-
-//		SharedPreferences pref = ((DonorApplication) getApplication())
-//				.getPref();
-//		//Back upplan for demo
-//		String donorId = pref.getString("DonorId", "5639445604728832");
-//		
-//		AsyncHttpClient client = new AsyncHttpClient();
-//
-//		client.get(
-//				getApplicationContext(),
-//				"http://1-dot-blood-donor-svc.appspot.com/datastore/donor/"+donorId,
-//				new AsyncHttpResponseHandler() {
-//					@Override
-//					public void onSuccess(int statusCode, Header[] headers,
-//							byte[] response) {
-//						
-//						Gson gson = new Gson();
-//						DonorRequest donorDetail = gson.fromJson(new String(response), DonorRequest.class);
-//						
-//						
-//						Intent intent = new Intent(SubscribeActivity.this,
-//								NotifyService.class);
-//						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//						intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-//						intent.putExtra("bloodGroup", donorDetail.getBloodGroup());
-//						intent.putExtra("city", donorDetail.getCity());
-//						intent.putExtra("locality", donorDetail.getLocality());
-//						startService(intent);
-//
-//					}
-//
-//					@Override
-//					public void onFailure(int statusCode, Header[] headers,
-//							byte[] errorResponse, Throwable e) {
-//						Toast.makeText(getApplicationContext(),
-//								new String(errorResponse), Toast.LENGTH_LONG)
-//								.show();
-//					}
-//				});
-
 	}
 
 	public void addItemsOnSpinners() {

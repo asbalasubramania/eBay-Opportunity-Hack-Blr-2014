@@ -29,56 +29,47 @@ public class RequestActivityMyOwn extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_request_list_my_own);
-		
+
 		final Bundle bundleExtras = getIntent().getExtras();
-
-
 		String phoneNumber = null;
-		//String city = null;
-		//String locality = null;
-
 		if (bundleExtras.getString("phoneNumber") != null) {
 			phoneNumber = bundleExtras.getString("phoneNumber");
 		}
-		
 
-		
-		
-				AsyncHttpClient client = new AsyncHttpClient();
-				RequestParams params = new RequestParams();
-				if (phoneNumber != null) params.add("phoneNumber", phoneNumber);
-				
-				
-				client.get(getApplicationContext(),
-						"http://1-dot-blood-donor-svc.appspot.com/datastore/requestor" ,
-						params, new AsyncHttpResponseHandler() {
-							@Override
-							public void onSuccess(int statusCode, Header[] headers,
-									byte[] response) {
-								String responseString = new String(response);
-								Toast.makeText(getApplicationContext(),
-										new String(responseString), Toast.LENGTH_LONG).show();
+		AsyncHttpClient client = new AsyncHttpClient();
+		RequestParams params = new RequestParams();
+		if (phoneNumber != null)
+			params.add("phoneNumber", phoneNumber);
 
-								System.out.println(responseString);
-								
-								List<RequestInfo> values = new ArrayList<RequestInfo>();
-								RequestActivityMyOwnAdapter adapter = new RequestActivityMyOwnAdapter(getApplicationContext(),
-										R.layout.activity_request_item, values);
-								setListAdapter(adapter);
-							}
+		client.get(getApplicationContext(),
+				"http://1-dot-blood-donor-svc.appspot.com/datastore/requestor",
+				params, new AsyncHttpResponseHandler() {
+					@Override
+					public void onSuccess(int statusCode, Header[] headers,
+							byte[] response) {
+						String responseString = new String(response);
+						Toast.makeText(getApplicationContext(),
+								new String(responseString), Toast.LENGTH_LONG)
+								.show();
 
+						System.out.println(responseString);
 
-							@Override
-							public void onFailure(int statusCode, Header[] headers,
-									byte[] errorResponse, Throwable e) {
-								Toast.makeText(getApplicationContext(),
-										new String(errorResponse), Toast.LENGTH_LONG)
-										.show();
-							}
-						});
-	
+						List<RequestInfo> values = new ArrayList<RequestInfo>();
+						RequestActivityMyOwnAdapter adapter = new RequestActivityMyOwnAdapter(
+								getApplicationContext(),
+								R.layout.activity_request_item, values);
+						setListAdapter(adapter);
+					}
 
-	
+					@Override
+					public void onFailure(int statusCode, Header[] headers,
+							byte[] errorResponse, Throwable e) {
+						Toast.makeText(getApplicationContext(),
+								new String(errorResponse), Toast.LENGTH_LONG)
+								.show();
+					}
+				});
+
 	}
 
 	@Override
@@ -99,8 +90,8 @@ public class RequestActivityMyOwn extends ListActivity {
 		HashMap<RequestInfo, Integer> mIdMap = new HashMap<RequestInfo, Integer>();
 		private final Context context;
 
-		public RequestActivityMyOwnAdapter(Context context, int textViewResourceId,
-				List<RequestInfo> objects) {
+		public RequestActivityMyOwnAdapter(Context context,
+				int textViewResourceId, List<RequestInfo> objects) {
 			super(context, textViewResourceId, objects);
 			this.context = context;
 			for (int i = 0; i < objects.size(); ++i) {
@@ -123,10 +114,11 @@ public class RequestActivityMyOwn extends ListActivity {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			LayoutInflater inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			View rowView = inflater.inflate(R.layout.activity_request_item_my_own,
-					parent, false);
+			View rowView = inflater.inflate(
+					R.layout.activity_request_item_my_own, parent, false);
 			RequestInfo item = getItem(position);
-			TextView phoneNumber = (TextView) rowView.findViewById(R.id.phoneNumber);
+			TextView phoneNumber = (TextView) rowView
+					.findViewById(R.id.phoneNumber);
 			phoneNumber.setText(item.getContactNumber().toString());
 			TextView nameAddress = (TextView) rowView
 					.findViewById(R.id.nameAddress);
