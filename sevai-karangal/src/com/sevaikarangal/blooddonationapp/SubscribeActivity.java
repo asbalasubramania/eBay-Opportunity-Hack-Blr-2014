@@ -156,30 +156,28 @@ public class SubscribeActivity extends Activity {
 		List<String> list = new ArrayList<String>();
 		list.add("O+ve");
 		list.add("O-ve");
+		list.add("A+ve");
 		list.add("A-ve");
-		list.add("B-ve");
 		list.add("B+ve");
+		list.add("B-ve");
+		list.add("AB+ve");
+		list.add("AB-ve");
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, list);
 		dataAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		bloodGrp.setAdapter(dataAdapter);
 
+		
 		gender = (Spinner) findViewById(R.id.gender);
 		list = new ArrayList<String>();
 		list.add("Male");
 		list.add("Female");
 		ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, list);
-		dataAdapter
+		dataAdapter2
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		gender.setAdapter(dataAdapter2);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.subscribe, menu);
-		return true;
-	}
 }

@@ -1,8 +1,9 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/otherpages"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -30,11 +31,20 @@
             android:textSize="24sp" />
 
     </TableRow>
+    
+    <ScrollView 
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    tools:context=".EditEntry" >
 
+     <TableLayout
+         android:layout_width="match_parent"
+   		 android:layout_height="wrap_content">
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="0.00" >
 
         <TextView
@@ -105,7 +115,6 @@
 
         <EditText
             android:id="@+id/patientn"
-            style="@style/WhiteFont"
             android:layout_weight="1"
             android:gravity="left"
             android:paddingBottom="7dp"
@@ -113,7 +122,6 @@
             android:paddingTop="7dp"
             android:ems="10"
             android:inputType="textPersonName" >
-            <requestFocus />
         </EditText>
 	</TableRow>
 	
@@ -162,7 +170,6 @@
 
         <EditText
             android:id="@+id/contactp"
-            style="@style/WhiteFont"
             android:layout_weight="1"
             android:gravity="left"
             android:paddingBottom="7dp"
@@ -170,7 +177,6 @@
             android:paddingTop="7dp"
             android:ems="10"
             android:inputType="textPersonName" >
-            <requestFocus />
         </EditText>
 	</TableRow>
 	
@@ -279,13 +285,14 @@
             android:ems="10" />
 
     </TableRow>
-
+    </TableLayout>
+</ScrollView>
        <Button
            android:id="@+id/button1"
-           android:layout_width="wrap_content"
+           android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_marginLeft="50dp"
            android:layout_marginRight="50dp"
            android:text="Request" />
     
-</TableLayout>
+</LinearLayout>
