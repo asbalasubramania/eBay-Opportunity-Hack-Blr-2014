@@ -15,7 +15,11 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +36,22 @@ public class RequestListActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_request_list);
 
+		//final int selectedFromList = new Integer(selectedFromList);
+		/*final ListView myListView = (ListView) findViewById(R.id.listView1);
+		myListView.setOnItemClickListener(new OnItemClickListener() {
+		      public void onItemClick(AdapterView<?> myAdapter, View myView, int myItemInt, long mylng) {
+		        
+		    	   selectedFromList =(String) (myListView.getItemAtPosition(myItemInt));
+
+		      }                 
+		});
+		
+		Adapter adapter = myListView.getAdapter();
+
+		//View listViewRow = adapter.getView(selectedFromList,View v ,View  view);
+		adapter.getItemViewType(selectedFromList);
+		//RequestItemActivity item = adapter.getItem(position)
+*/		
 		final Bundle bundleExtras = getIntent().getExtras();
 
 		String bloodGrp = null;
