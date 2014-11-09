@@ -94,16 +94,15 @@ public class RequestActivity extends Activity {
 					return;
 				}
 				Pattern pattern = Pattern.compile("\\d{10}");
-				Matcher matcher = pattern.matcher(mEdit5.getText().toString());
-
-				if (matcher.matches()) {
-					System.out.println("Phone Number Valid");
-				} else {
-					Toast.makeText(getApplicationContext(),
-							"Mandatory : Phone Number must be 10 digits",
-							Toast.LENGTH_SHORT).show();
-					return;
-				}
+		        Matcher matcher = pattern.matcher(mEdit5.getText().toString());
+			    if (matcher.matches()) {
+				  System.out.println("Phone Number Valid");
+			    }
+			    else
+			    {
+				  Toast.makeText(getApplicationContext(), "Mandatory : Phone Number must be 10 digits", Toast.LENGTH_SHORT).show();
+				  return;
+			    }
 				rq.setBloodUnits(Integer.parseInt(mEdit1.getText().toString()));
 				rq.setPatientName(mEdit2.getText().toString());
 				rq.setHospital(mEdit3.getText().toString());
