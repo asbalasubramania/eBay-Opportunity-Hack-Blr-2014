@@ -26,7 +26,7 @@ public class HomeActivity extends Activity {
 	}
 
 	public void openMyListActivity(View view) {
-		Intent intent = new Intent(this, RequestListActivity.class);
+		Intent intent = new Intent(this, RequestActivityMyOwn.class);
 		SharedPreferences pref = ((DonorApplication) getApplication())
 				.getPref();
 		intent.putExtra("phoneNumber", pref.getString("PhoneNumber", ""));
