@@ -16,6 +16,8 @@
     <string name="ContactNo">Contact No: </string>
     <string name="Date">Date: </string>
     <string name="City">City: </string>
+    <string name="Sorry">Sorry!! </string>
+    <string name="SorryMessage">Oops, We could not locate any records for this request.</string>
 
     <string-array name="bloodtype">
         <item>O+ve</item>
