@@ -104,6 +104,8 @@ public class DonorListActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		DonorDetail item = (DonorDetail) getListAdapter().getItem(position);
 		Toast.makeText(this, item.getName() + " selected", Toast.LENGTH_LONG).show();
+		Intent intent = new Intent(getApplicationContext(), DonorDetailsActivity.class);
+		intent.putExtra("DonorID", item.getDonorId());
 	}
 
 	private class DonorArrayAdapter extends ArrayAdapter<DonorDetail> {

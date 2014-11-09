@@ -58,16 +58,11 @@ public class RequestActivity2 extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				String str = new String();
-				if (bundle.getString("reqd") != null) {
-					str = bundle.getString("reqid");
-
-				}
-
-				Intent intent = new Intent(RequestActivity2.this,
-						EmergencyCase.class);
-				intent.putExtra("reqid", str);
-				startActivity(intent);
+				Intent sendIntent = new Intent();
+				sendIntent.setAction(Intent.ACTION_SEND);
+				sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+				sendIntent.setType("text/plain");
+				startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
 
 			}
 		});

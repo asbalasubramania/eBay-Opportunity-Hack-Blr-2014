@@ -71,7 +71,7 @@ public class RequestActivityMyOwn extends ListActivity {
 				
 				
 				client.get(getApplicationContext(),
-						"http://1-dot-blood-donor-svc.appspot.com/datastore/requestor/myrequest" ,
+						"http://1-dot-blood-donor-svc.appspot.com/datastore/requestor" ,
 						params, new AsyncHttpResponseHandler() {
 							@Override
 							public void onSuccess(int statusCode, Header[] headers,
