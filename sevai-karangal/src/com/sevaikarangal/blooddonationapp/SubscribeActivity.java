@@ -124,7 +124,6 @@ public class SubscribeActivity extends Activity {
 						try {
 							jsobobj = new JSONObject(new String(response));
 						} catch (JSONException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						// JSONObject job2 = new JSONObject();
@@ -132,14 +131,9 @@ public class SubscribeActivity extends Activity {
 						String city = new String();
 						System.out.println(jsobobj);
 						try {
-							// job2 =
-							// jsobobj.getJSONObject("bloodRequestorRequest");
-
 							bgp = jsobobj.getString("bloodGroup");
 							city = jsobobj.getString("city");
-
 						} catch (JSONException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 						System.out.println(bgp);
