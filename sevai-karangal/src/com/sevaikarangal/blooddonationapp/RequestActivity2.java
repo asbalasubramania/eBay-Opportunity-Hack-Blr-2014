@@ -2,6 +2,7 @@ package com.sevaikarangal.blooddonationapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,10 +14,11 @@ public class RequestActivity2 extends Activity {
 
 	public void openDonorList(View view) {
 		Intent intent = new Intent(this, DonorListActivity.class);
-		String city = null, locality = null, bloodGroup = null;
-		intent.putExtra("city", city);
-		intent.putExtra("locality", locality);
-		intent.putExtra("bloodGroup", bloodGroup );
+		SharedPreferences pref = ((DonorApplication) getApplication())
+				.getPref();
+		intent.putExtra("city", pref.getString("City", "Bangalore"));
+		intent.putExtra("locality", pref.getString("Locality", "hst"));
+		intent.putExtra("bloodGroup", pref.getString("BloodGroup", "O+ve"));
 		startActivity(intent);
 	}
 
@@ -24,7 +26,7 @@ public class RequestActivity2 extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_request2);
-		
+
 		final Bundle bundle = getIntent().getExtras();
 
 		Button sms = (Button) findViewById(R.id.sendsms);
@@ -50,26 +52,25 @@ public class RequestActivity2 extends Activity {
 
 			}
 		});
-		
-		  Button emer = (Button) findViewById(R.id.emer);
-          emer.setOnClickListener(new View.OnClickListener() {
 
-                  @Override
-                  public void onClick(View v) {
-                          // TODO Auto-generated method stub
+		Button emer = (Button) findViewById(R.id.emer);
+		emer.setOnClickListener(new View.OnClickListener() {
 
-                          String str = new String();
-                          if (bundle.getString("reqd") != null) {
-                                  str = bundle.getString("reqid");
+			@Override
+			public void onClick(View v) {
+				String str = new String();
+				if (bundle.getString("reqd") != null) {
+					str = bundle.getString("reqid");
 
-                          }
+				}
 
-                          Intent intent = new Intent(RequestActivity2.this,EmergencyCase.class);
-                          intent.putExtra("reqid",str );
-                          startActivity(intent);
+				Intent intent = new Intent(RequestActivity2.this,
+						EmergencyCase.class);
+				intent.putExtra("reqid", str);
+				startActivity(intent);
 
-                  }
-          });
+			}
+		});
 	}
 
 	@Override

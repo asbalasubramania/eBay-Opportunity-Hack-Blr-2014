@@ -15,11 +15,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,28 +31,13 @@ public class RequestListActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_request_list);
-
-		//final int selectedFromList = new Integer(selectedFromList);
-		/*final ListView myListView = (ListView) findViewById(R.id.listView1);
-		myListView.setOnItemClickListener(new OnItemClickListener() {
-		      public void onItemClick(AdapterView<?> myAdapter, View myView, int myItemInt, long mylng) {
-		        
-		    	   selectedFromList =(String) (myListView.getItemAtPosition(myItemInt));
-
-		      }                 
-		});
 		
-		Adapter adapter = myListView.getAdapter();
-
-		//View listViewRow = adapter.getView(selectedFromList,View v ,View  view);
-		adapter.getItemViewType(selectedFromList);
-		//RequestItemActivity item = adapter.getItem(position)
-*/		
 		final Bundle bundleExtras = getIntent().getExtras();
 
 		String bloodGrp = null;
 		String city = null;
 		String locality = null;
+		String phoneNumber = null;
 
 		if (bundleExtras.getString("bloodGrp") != null) {
 			bloodGrp = bundleExtras.getString("bloodGrp");
@@ -67,12 +48,16 @@ public class RequestListActivity extends ListActivity {
 		if (bundleExtras.getString("city") != null) {
 			city = bundleExtras.getString("city");
 		}
+		if (bundleExtras.getString("phoneNumber") != null) {
+			phoneNumber = bundleExtras.getString("phoneNumber");
+		}
 
 		AsyncHttpClient client = new AsyncHttpClient();
 		RequestParams params = new RequestParams();
 		if (city != null) params.add("city", city);
 		if (locality != null) params.add("locality", locality);
 		if (bloodGrp != null) params.add("bloodGroup", bloodGrp);
+		if (phoneNumber != null) params.add("phoneNumber", phoneNumber);
 
 		client.get(getApplicationContext(),
 				"http://1-dot-blood-donor-svc.appspot.com/datastore/requestor",
@@ -83,8 +68,6 @@ public class RequestListActivity extends ListActivity {
 						String responseString = new String(response);
 						Toast.makeText(getApplicationContext(),
 								new String(responseString), Toast.LENGTH_LONG).show();
-
-						System.out.println(responseString);
 						
 						List<RequestInfo> values = new ArrayList<RequestInfo>();
 						RequestArrayAdapter adapter = new RequestArrayAdapter(getApplicationContext(),

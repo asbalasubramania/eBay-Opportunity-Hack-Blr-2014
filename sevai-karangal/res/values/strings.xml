@@ -67,5 +67,6 @@
     <string name="regFailed">Request not accepted.</string>
     <string name="title_activity_request_list">RequestListActivity</string>
     <string name="title_activity_request_item">RequestItemActivity</string>
+    <string name="mylist">My Request</string>
 
 </resources>
